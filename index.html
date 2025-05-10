@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Walimatulurus Abu & Sarah</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <audio id="bgm" autoplay loop>
+    <source src="Hafiz Suip - Kisah Cinta Kita (Lyrics).mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="flipbook">
+    <!-- Muka Hadapan -->
+    <section class="page front-page">
+      <h1>Jemputan Walimatulurus</h1>
+      <p>Abu & Sarah</p>
+      <p>30 Jun 2025 | 11:00 pagi</p>
+      <p>Masjid Jamek Tanjong Malim</p>
+      <div id="countdown"></div>
+      <button onclick="flipToNext()">Buka Kad</button>
+    </section>
+
+    <!-- Muka Kedua -->
+    <section class="page">
+      <h2>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</h2>
+      <p>Dengan penuh rasa syukur dan rendah hati kami menjemput...</p>
+      <p>Abu bin Haji Latif & Sarah binti Haji Mahmud</p>
+      <p>30 Jun 2025 | 11:00 pagi</p>
+      <p>Masjid Jamek Tanjong Malim</p>
+    </section>
+
+    <!-- Muka Ketiga -->
+    <section class="page">
+      <h2>Menanti Hari Bahagia</h2>
+      <img src="pasangan.jpeg" alt="Pasangan" class="pasangan-img" />
+      <p>Ya Allah, berkati pasangan ini dalam kasih sayang dan keberkatanMu...</p>
+    </section>
+
+    <!-- Muka Akhir -->
+    <section class="page">
+      <h2>Tulis Ucapan</h2>
+      <form action="https://formsubmit.co/syamisyafiy@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_redirect" value="https://nna-nabilaa.github.io/NNA-Store/">
+        <input type="text" name="Nama" placeholder="Nama Anda" required />
+        <input type="email" name="Email" placeholder="Email" required />
+        <textarea name="Ucapan" placeholder="Tulis Ucapan" required></textarea>
+        <button type="submit">Hantar</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p><strong>RSVP:</strong> 019-8566553</p>
+    <a href="https://wa.me/60198566553" target="_blank">WhatsApp Kami</a>
+    <p><strong>Lokasi:</strong> Masjid Jamek Tanjong Malim</p>
+    <div id="footer-countdown"></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
