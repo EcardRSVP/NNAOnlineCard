@@ -1,49 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
-  <meta charset="UTF-8">
-  <title>RSVP</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Majlis Perkahwinan</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 400px;
-      margin: auto;
+      background: #fefefe;
+      color: #333;
       padding: 20px;
+      text-align: center;
+    }
+    h1, h2 {
+      color: #c0392b;
+    }
+    .location-links a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background: #27ae60;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+    form {
+      margin-top: 30px;
+    }
+    input, textarea {
+      padding: 10px;
+      margin: 10px;
+      width: 80%;
+      max-width: 400px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
-  <h1>RSVP Kehadiran</h1>
 
-  <form id="rsvpForm">
-    <div>
-      <label for="name">Nama:</label>
-      <input type="text" id="name" required>
-    </div>
+  <h1>Majlis Perkahwinan</h1>
+  <p>Dengan sukacitanya kami menjemput anda ke majlis perkahwinan kami.</p>
 
-    <div>
-      <label>Kehadiran:</label>
-      <label><input type="radio" name="attendance" value="Hadir" required> Hadir</label>
-      <label><input type="radio" name="attendance" value="Tidak Hadir"> Tidak Hadir</label>
-    </div>
+  <h2>Lokasi Majlis</h2>
+  <p>Masjid Negara, Kuala Lumpur</p>
+  <div class="location-links">
+    <a href="https://goo.gl/maps/xxxxxx" target="_blank">Lihat di Google Maps</a>
+    <a href="https://waze.com/ul?ll=3.139003,101.686855&navigate=yes" target="_blank">Buka di Waze</a>
+  </div>
 
-    <div>
-      <button type="submit">Kirim</button>
-    </div>
+  <h2>RSVP</h2>
+  <form action="https://formspree.io/f/yourformid" method="POST">
+    <input type="text" name="nama" placeholder="Nama anda" required />
+    <input type="email" name="emel" placeholder="Email (jika ada)" />
+    <textarea name="kehadiran" placeholder="Contoh: Hadir bersama 2 orang" required></textarea>
+    <br />
+    <button type="submit">Hantar RSVP</button>
   </form>
 
-  <div id="response"></div>
-
-  <script>
-    document.getElementById("rsvpForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const name = document.getElementById("name").value;
-      const attendance = document.querySelector('input[name="attendance"]:checked').value;
-
-      document.getElementById("response").innerHTML =
-        `<p>Terima kasih, ${name}. Kamu telah memilih: <strong>${attendance}</strong>.</p>`;
-    });
-  </script>
 </body>
 </html>
