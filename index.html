@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jemputan Majlis</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Majlis Perkahwinan Ahmad & Aisyah</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding-bottom: 80px;
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
       background-color: #fff;
+      padding-bottom: 80px; /* ruang untuk footer */
+    }
+
+    header {
+      background: #f8f0f8;
+      text-align: center;
+      padding: 30px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #b873a9;
+    }
+
+    main {
+      padding: 20px;
     }
 
     section {
       display: none;
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-      padding: 50px 20px;
-      min-height: 80vh;
+      transform: translateY(30px);
+      transition: all 0.5s ease;
+      min-height: 70vh;
     }
 
     section.active {
@@ -37,112 +60,69 @@
       border-top: 1px solid #ccc;
       display: flex;
       justify-content: space-around;
-      align-items: center;
       padding: 10px 0;
       z-index: 1000;
-      font-size: 14px;
     }
 
     footer a {
       text-decoration: none;
       color: #333;
       text-align: center;
-    }
-
-    footer a:hover {
-      color: #007BFF;
+      font-size: 12px;
     }
 
     footer i {
-      display: block;
       font-size: 18px;
-      margin-bottom: 3px;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    footer a:hover {
+      color: #a855f7;
     }
 
     h2 {
-      color: #333;
+      color: #444;
     }
 
-    /* Extra for smoother transition (optional) */
-    .hidden {
-      display: none !important;
+    p, ul {
+      color: #555;
     }
   </style>
 </head>
 <body>
 
-  <!-- SECTION: RSVP -->
-  <section id="rsvp" class="active">
-    <h2>RSVP</h2>
-    <p>Sila isi borang kehadiran anda:</p>
-    <a href="https://forms.gle/yourformlink" target="_blank">Borang RSVP</a>
-  </section>
+  <!-- NAMA MAJLIS (sentiasa kekal di atas) -->
+  <header>
+    <h1>Majlis Perkahwinan Ahmad & Aisyah</h1>
+  </header>
 
-  <!-- SECTION: Money Gift -->
-  <section id="moneygift">
-    <h2>Money Gift</h2>
-    <p>Bank: Maybank<br>No Akaun: 1234567890<br>Nama: Ahmad & Aisyah</p>
-  </section>
+  <main>
+    <!-- RSVP -->
+    <section id="rsvp" class="active">
+      <h2>RSVP</h2>
+      <p>Sila isi borang kehadiran anda:</p>
+      <a href="https://forms.gle/yourformlink" target="_blank">Borang RSVP</a>
+    </section>
 
-  <!-- SECTION: Wishlist -->
-  <section id="wishlist">
-    <h2>Wishlist</h2>
-    <ul>
-      <li>Set Periuk</li>
-      <li>Baucar IKEA</li>
-      <li>Set Pinggan Mangkuk</li>
-    </ul>
-  </section>
+    <!-- Money Gift -->
+    <section id="moneygift">
+      <h2>Money Gift</h2>
+      <p>Bank: Maybank<br>No Akaun: 1234567890<br>Nama: Ahmad & Aisyah</p>
+    </section>
 
-  <!-- SECTION: Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p><i class="fas fa-phone-alt"></i> <a href="tel:+60123456789">+60 12-345 6789</a></p>
-    <p><i class="fas fa-envelope"></i> <a href="mailto:jemputan@email.com">jemputan@email.com</a></p>
-  </section>
+    <!-- Wishlist -->
+    <section id="wishlist">
+      <h2>Wishlist</h2>
+      <ul>
+        <li>Set Periuk</li>
+        <li>Baucar IKEA</li>
+        <li>Set Pinggan Mangkuk</li>
+      </ul>
+    </section>
 
-  <!-- SECTION: Location -->
-  <section id="location">
-    <h2>Location</h2>
-    <p>Majlis diadakan di Dewan Majlis Contoh, Kuala Lumpur.</p>
-    <a href="https://maps.google.com" target="_blank">Lihat Lokasi di Google Maps</a>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <a href="#" onclick="showSection('rsvp')">
-      <i class="fas fa-clipboard-check"></i>RSVP
-    </a>
-    <a href="#" onclick="showSection('moneygift')">
-      <i class="fas fa-money-bill-wave"></i>Gift
-    </a>
-    <a href="#" onclick="showSection('wishlist')">
-      <i class="fas fa-gift"></i>Wishlist
-    </a>
-    <a href="#" onclick="showSection('contact')">
-      <i class="fas fa-phone-alt"></i>Contact
-    </a>
-    <a href="#" onclick="showSection('location')">
-      <i class="fas fa-map-marker-alt"></i>Location
-    </a>
-  </footer>
-
-  <!-- SCRIPT: Animasi Section -->
-  <script>
-    function showSection(id) {
-      const allSections = document.querySelectorAll('section');
-
-      allSections.forEach(section => {
-        if (section.id === id) {
-          section.classList.add('active');
-        } else {
-          section.classList.remove('active');
-        }
-      });
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
-
-</body>
-</html>
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p><i class="fas fa-phone-alt"></i> <a href="tel:+60123456789">+60 12-345 6789</a></p>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:jemputan@email.com">jemputan@email.com</
