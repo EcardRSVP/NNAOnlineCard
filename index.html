@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Majlis Perkahwinan Ahmad & Aisyah</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -12,29 +12,39 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       background-color: #fff;
-      padding-bottom: 80px; /* ruang untuk footer */
+      padding-bottom: 90px;
     }
 
     header {
       background: #f8f0f8;
       text-align: center;
-      padding: 30px 20px;
+      padding: 20px;
       position: sticky;
       top: 0;
       z-index: 10;
       border-bottom: 1px solid #ddd;
     }
 
+    header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
     header h1 {
       margin: 0;
-      font-size: 24px;
+      font-size: 22px;
       color: #b873a9;
     }
 
-    main {
-      padding: 20px;
+    header .countdown {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #333;
     }
 
     section {
@@ -42,6 +52,7 @@
       opacity: 0;
       transform: translateY(30px);
       transition: all 0.5s ease;
+      padding: 30px 20px;
       min-height: 70vh;
     }
 
@@ -81,37 +92,49 @@
       color: #a855f7;
     }
 
-    h2 {
-      color: #444;
-    }
-
-    p, ul {
-      color: #555;
+    .music-control {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #fce7f3;
+      padding: 8px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 1001;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
 
-  <!-- NAMA MAJLIS (sentiasa kekal di atas) -->
+  <!-- Muzik Latar + Butang Kawalan -->
+  <div class="music-control" onclick="toggleMusic()">
+    <i id="musicIcon" class="fas fa-play"></i> Muzik
+  </div>
+  <audio id="bgMusic" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- NAMA & GAMBAR MAJLIS -->
   <header>
+    <img src="https://via.placeholder.com/100" alt="Pasangan">
     <h1>Majlis Perkahwinan Ahmad & Aisyah</h1>
+    <div class="countdown" id="countdown"></div>
   </header>
 
+  <!-- KANDUNGAN -->
   <main>
-    <!-- RSVP -->
     <section id="rsvp" class="active">
       <h2>RSVP</h2>
       <p>Sila isi borang kehadiran anda:</p>
       <a href="https://forms.gle/yourformlink" target="_blank">Borang RSVP</a>
     </section>
 
-    <!-- Money Gift -->
     <section id="moneygift">
       <h2>Money Gift</h2>
       <p>Bank: Maybank<br>No Akaun: 1234567890<br>Nama: Ahmad & Aisyah</p>
     </section>
 
-    <!-- Wishlist -->
     <section id="wishlist">
       <h2>Wishlist</h2>
       <ul>
@@ -121,8 +144,76 @@
       </ul>
     </section>
 
-    <!-- Contact -->
     <section id="contact">
       <h2>Contact</h2>
       <p><i class="fas fa-phone-alt"></i> <a href="tel:+60123456789">+60 12-345 6789</a></p>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:jemputan@email.com">jemputan@email.com</
+      <p><i class="fas fa-envelope"></i> <a href="mailto:jemputan@email.com">jemputan@email.com</a></p>
+    </section>
+
+    <section id="location">
+      <h2>Lokasi Majlis</h2>
+      <p>Dewan Seri Impian, Kuala Lumpur</p>
+      <a href="https://maps.google.com" target="_blank">Buka Google Maps</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" onclick="showSection('rsvp')"><i class="fas fa-clipboard-check"></i>RSVP</a>
+    <a href="#" onclick="showSection('moneygift')"><i class="fas fa-money-bill-wave"></i>Gift</a>
+    <a href="#" onclick="showSection('wishlist')"><i class="fas fa-gift"></i>Wishlist</a>
+    <a href="#" onclick="showSection('contact')"><i class="fas fa-phone-alt"></i>Contact</a>
+    <a href="#" onclick="showSection('location')"><i class="fas fa-map-marker-alt"></i>Lokasi</a>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    function showSection(id) {
+      const allSections = document.querySelectorAll('section');
+      allSections.forEach(section => section.classList.remove('active'));
+      const selected = document.getElementById(id);
+      if (selected) {
+        selected.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Countdown ke tarikh majlis
+    const countdownElement = document.getElementById("countdown");
+    const weddingDate = new Date("2025-12-25T00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        countdownElement.innerHTML = "Majlis sedang berlangsung!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      countdownElement.innerHTML = `Majlis akan berlangsung dalam ${days} hari`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Muzik kawalan
+    const music = document.getElementById("bgMusic");
+    const icon = document.getElementById("musicIcon");
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+        icon.classList.remove("fa-play");
+        icon.classList.add("fa-pause");
+      } else {
+        music.pause();
+        icon.classList.remove("fa-pause");
+        icon.classList.add("fa-play");
+      }
+    }
+  </script>
+
+</body>
+</html>
