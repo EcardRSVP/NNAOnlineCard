@@ -6,7 +6,6 @@
   <title>Majlis Perkahwinan Ahmad & Aisyah</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
@@ -18,7 +17,6 @@
       background: #fdf1f9;
       text-align: center;
       padding: 30px 20px;
-      border-bottom: 1px solid #ddd;
     }
 
     header img {
@@ -34,25 +32,32 @@
       color: #b947aa;
     }
 
-    /* FLIP COUNTDOWN BOX */
     .countdown-box {
-      margin-top: 20px;
       display: flex;
       justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
     }
 
     .flip-box {
       background: #ff6ec4;
       color: white;
-      font-size: 32px;
+      font-size: 20px;
       font-weight: bold;
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       border-radius: 12px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       animation: flipIn 0.8s ease forwards;
+    }
+
+    .flip-box span {
+      font-size: 14px;
+      font-weight: normal;
+      margin-top: 4px;
     }
 
     @keyframes flipIn {
@@ -101,10 +106,6 @@
       margin-bottom: 2px;
     }
 
-    footer a:hover {
-      color: #a855f7;
-    }
-
     .music-control {
       position: fixed;
       top: 20px;
@@ -118,7 +119,79 @@
     }
   </style>
 </head>
-<body onload="initCountdown(); playMusic();">
+<body onload="startCountdown(); playMusic();">
 
-  <!-- Muzik Latar -->
-  <div class="music
+  <!-- Muzik -->
+  <div class="music-control" onclick="toggleMusic()">
+    <i id="musicIcon" class="fas fa-volume-up"></i> Muzik
+  </div>
+  <audio id="bgMusic" autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Header -->
+  <header>
+    <img src="https://via.placeholder.com/100" alt="Pasangan">
+    <h1>Ahmad & Aisyah</h1>
+
+    <div class="countdown-box">
+      <div id="dayBox" class="flip-box">0<span>Hari</span></div>
+      <div id="hourBox" class="flip-box">0<span>Jam</span></div>
+      <div id="minBox" class="flip-box">0<span>Minit</span></div>
+    </div>
+  </header>
+
+  <!-- Kandungan -->
+  <main>
+    <section id="rsvp" class="active">
+      <h2>RSVP</h2>
+      <p>Sila isi borang kehadiran anda:</p>
+      <a href="https://forms.gle/yourformlink" target="_blank">Borang RSVP</a>
+    </section>
+
+    <section id="moneygift">
+      <h2>Money Gift</h2>
+      <p>Bank: Maybank<br>No Akaun: 1234567890<br>Nama: Ahmad & Aisyah</p>
+    </section>
+
+    <section id="wishlist">
+      <h2>Wishlist</h2>
+      <ul>
+        <li>Set Periuk</li>
+        <li>Baucar IKEA</li>
+        <li>Set Pinggan Mangkuk</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p><i class="fas fa-phone-alt"></i> <a href="tel:+60123456789">+60 12-345 6789</a></p>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:jemputan@email.com">jemputan@email.com</a></p>
+    </section>
+
+    <section id="location">
+      <h2>Lokasi Majlis</h2>
+      <p>Dewan Seri Impian, Kuala Lumpur</p>
+      <a href="https://maps.google.com" target="_blank">Buka Google Maps</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <a href="#" onclick="showSection('rsvp')"><i class="fas fa-clipboard-check"></i>RSVP</a>
+    <a href="#" onclick="showSection('moneygift')"><i class="fas fa-money-bill-wave"></i>Gift</a>
+    <a href="#" onclick="showSection('wishlist')"><i class="fas fa-gift"></i>Wishlist</a>
+    <a href="#" onclick="showSection('contact')"><i class="fas fa-phone-alt"></i>Contact</a>
+    <a href="#" onclick="showSection('location')"><i class="fas fa-map-marker-alt"></i>Lokasi</a>
+  </footer>
+
+  <!-- JS Countdown + Muzik -->
+  <script>
+    const weddingDate = new Date("2025-12-25T00:00:00").getTime();
+
+    function startCountdown() {
+      setInterval(() => {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        const days = Math.floor(distance / (1000
