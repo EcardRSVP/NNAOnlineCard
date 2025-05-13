@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
@@ -35,46 +34,30 @@
       color: #b947aa;
     }
 
-    /* COUNTDOWN GRAFIK */
-    .countdown-wrapper {
+    /* FLIP COUNTDOWN BOX */
+    .countdown-box {
       margin-top: 20px;
+      display: flex;
+      justify-content: center;
     }
 
-    .circle-countdown {
-      position: relative;
-      width: 120px;
-      height: 120px;
-      margin: 0 auto;
-    }
-
-    .circle-countdown svg {
-      transform: rotate(-90deg);
-    }
-
-    .circle-countdown .circle-bg {
-      fill: none;
-      stroke: #eee;
-      stroke-width: 10;
-    }
-
-    .circle-countdown .circle-progress {
-      fill: none;
-      stroke: #ff6ec4;
-      stroke-width: 10;
-      stroke-linecap: round;
-      stroke-dasharray: 377;
-      stroke-dashoffset: 0;
-      transition: stroke-dashoffset 1s ease;
-    }
-
-    .circle-countdown .count-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    .flip-box {
+      background: #ff6ec4;
+      color: white;
+      font-size: 32px;
       font-weight: bold;
-      font-size: 18px;
-      color: #444;
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: flipIn 0.8s ease forwards;
+    }
+
+    @keyframes flipIn {
+      0% { transform: rotateX(90deg); opacity: 0; }
+      100% { transform: rotateX(0); opacity: 1; }
     }
 
     section {
@@ -138,117 +121,4 @@
 <body onload="initCountdown(); playMusic();">
 
   <!-- Muzik Latar -->
-  <div class="music-control" onclick="toggleMusic()">
-    <i id="musicIcon" class="fas fa-volume-up"></i> Muzik
-  </div>
-  <audio id="bgMusic" autoplay loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-  </audio>
-
-  <!-- HEADER -->
-  <header>
-    <img src="https://via.placeholder.com/100" alt="Pasangan">
-    <h1>Ahmad & Aisyah</h1>
-
-    <!-- Countdown Grafik -->
-    <div class="countdown-wrapper">
-      <div class="circle-countdown">
-        <svg width="120" height="120">
-          <circle class="circle-bg" cx="60" cy="60" r="60"/>
-          <circle class="circle-progress" cx="60" cy="60" r="60"/>
-        </svg>
-        <div class="count-text" id="countText">Loading...</div>
-      </div>
-    </div>
-  </header>
-
-  <!-- KANDUNGAN -->
-  <main>
-    <section id="rsvp" class="active">
-      <h2>RSVP</h2>
-      <p>Sila isi borang kehadiran anda:</p>
-      <a href="https://forms.gle/yourformlink" target="_blank">Borang RSVP</a>
-    </section>
-
-    <section id="moneygift">
-      <h2>Money Gift</h2>
-      <p>Bank: Maybank<br>No Akaun: 1234567890<br>Nama: Ahmad & Aisyah</p>
-    </section>
-
-    <section id="wishlist">
-      <h2>Wishlist</h2>
-      <ul>
-        <li>Set Periuk</li>
-        <li>Baucar IKEA</li>
-        <li>Set Pinggan Mangkuk</li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p><i class="fas fa-phone-alt"></i> <a href="tel:+60123456789">+60 12-345 6789</a></p>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:jemputan@email.com">jemputan@email.com</a></p>
-    </section>
-
-    <section id="location">
-      <h2>Lokasi Majlis</h2>
-      <p>Dewan Seri Impian, Kuala Lumpur</p>
-      <a href="https://maps.google.com" target="_blank">Buka Google Maps</a>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <a href="#" onclick="showSection('rsvp')"><i class="fas fa-clipboard-check"></i>RSVP</a>
-    <a href="#" onclick="showSection('moneygift')"><i class="fas fa-money-bill-wave"></i>Gift</a>
-    <a href="#" onclick="showSection('wishlist')"><i class="fas fa-gift"></i>Wishlist</a>
-    <a href="#" onclick="showSection('contact')"><i class="fas fa-phone-alt"></i>Contact</a>
-    <a href="#" onclick="showSection('location')"><i class="fas fa-map-marker-alt"></i>Lokasi</a>
-  </footer>
-
-  <!-- SCRIPT -->
-  <script>
-    const weddingDate = new Date("2025-12-25T00:00:00").getTime();
-
-    function showSection(id) {
-      const sections = document.querySelectorAll("section");
-      sections.forEach(section => section.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function initCountdown() {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
-      const maxDays = 365; // untuk kiraan peratus
-      const daysLeft = Math.max(0, Math.ceil(distance / (1000 * 60 * 60 * 24)));
-      const percent = 100 - Math.min(100, (daysLeft / maxDays) * 100);
-      const circle = document.querySelector(".circle-progress");
-      const dashoffset = 377 - (377 * percent / 100);
-      circle.style.strokeDashoffset = dashoffset;
-      document.getElementById("countText").innerText = `${daysLeft} hari lagi`;
-    }
-
-    // Muzik Autoplay + Butang Kawalan
-    const music = document.getElementById("bgMusic");
-    const icon = document.getElementById("musicIcon");
-
-    function toggleMusic() {
-      if (music.paused) {
-        music.play();
-        icon.classList.replace("fa-volume-mute", "fa-volume-up");
-      } else {
-        music.pause();
-        icon.classList.replace("fa-volume-up", "fa-volume-mute");
-      }
-    }
-
-    function playMusic() {
-      music.play().catch(() => {
-        // Autoplay mungkin disekat, tak apa
-      });
-    }
-  </script>
-
-</body>
-</html>
+  <div class="music
