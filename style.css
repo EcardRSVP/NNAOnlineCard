@@ -21,13 +21,19 @@ body {
   z-index: 1000;
 }
 .fixed-footer button {
-  background: none;
+  background-color: #e91e63;
   border: none;
   font-size: 20px;
-  color: #e91e63; /* Warna pink/ros untuk ikon */
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .fixed-footer button:hover {
-  color: #ad1457; /* Warna lebih gelap bila hover */
+  background-color: #ad1457;
 }
 .gallery-grid {
   display: grid;
