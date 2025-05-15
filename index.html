@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -8,7 +9,6 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- Laman Depan -->
   <section id="front" class="active">
     <div class="front-content">
       <h1>Majlis Perkahwinan</h1>
@@ -18,12 +18,9 @@
     </div>
   </section>
 
-  <!-- Muzik -->
   <audio id="bgMusic" src="music.mp3" loop></audio>
 
-  <!-- Seksyen Utama -->
   <main id="mainContent" style="display: none;">
-    <!-- Maklumat Majlis -->
     <section id="info" class="section">
       <h2>Maklumat Majlis</h2>
       <p>Tarikh: 31 Disember 2025</p>
@@ -31,7 +28,15 @@
       <p>Lokasi: Dewan Seri Melati, Putrajaya</p>
     </section>
 
-    <!-- RSVP -->
+    <section id="gallery" class="section">
+      <h2>Kenangan Manis</h2>
+      <div class="gallery-grid">
+        <img src="img1.jpg" alt="gambar1">
+        <img src="img2.jpg" alt="gambar2">
+        <img src="img3.jpg" alt="gambar3">
+      </div>
+    </section>
+
     <section id="rsvp" class="section">
       <h2>RSVP</h2>
       <form>
@@ -41,14 +46,12 @@
       </form>
     </section>
 
-    <!-- Wedding Gift -->
     <section id="gift" class="section">
       <h2>Hadiah Perkahwinan</h2>
       <p>Bank Transfer:</p>
       <p>Maybank - 1234567890 (Ahmad)</p>
     </section>
 
-    <!-- Wishlist -->
     <section id="wishlist" class="section">
       <h2>Wishlist Shopee</h2>
       <ul id="wishlist-items">
@@ -58,27 +61,23 @@
       </ul>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="section">
       <h2>Hubungi</h2>
       <p><i class="fas fa-phone"></i> Ahmad: <a href="tel:0112345678">011-2345 678</a></p>
       <p><i class="fas fa-phone"></i> Aisyah: <a href="tel:0123456789">012-345 6789</a></p>
     </section>
 
-    <!-- Location -->
     <section id="location" class="section">
       <h2>Lokasi</h2>
       <iframe src="https://www.google.com/maps/embed?..." width="100%" height="300" style="border:0;" loading="lazy"></iframe>
       <p><a href="https://waze.com/ul?ll=3.1357,101.6842" target="_blank">Buka di Waze</a></p>
     </section>
 
-    <!-- Doa -->
     <section id="doa" class="section">
       <h2>Doa Pengantin</h2>
       <p>Barakallahu lakuma wa baraka alaikuma wa jama'a bainakuma fi khair</p>
     </section>
 
-    <!-- Ucapan & Guestbook -->
     <section id="ucapan" class="section">
       <h2>Ucapan Tetamu</h2>
       <form onsubmit="addWish(event)">
@@ -89,13 +88,11 @@
       <div id="wishList"></div>
     </section>
 
-    <!-- Hashtag -->
     <footer>
       <p>#AhmadAisyahForever</p>
     </footer>
   </main>
 
-  <!-- Navigasi Bawah Sticky -->
   <div class="fixed-footer">
     <button onclick="scrollToSection('info')"><i class="fas fa-info-circle"></i></button>
     <button onclick="scrollToSection('rsvp')"><i class="fas fa-envelope"></i></button>
@@ -106,46 +103,6 @@
     <button onclick="scrollToSection('ucapan')"><i class="fas fa-comment-dots"></i></button>
   </div>
 
-  <script>
-    document.getElementById("openBtn").addEventListener("click", function() {
-      document.getElementById("front").style.display = "none";
-      document.getElementById("mainContent").style.display = "block";
-      document.getElementById("bgMusic").play();
-    });
-
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function markReserved(button, key) {
-      if (localStorage.getItem(key) === "reserved") return;
-      button.textContent = "Sudah Ditempah";
-      button.disabled = true;
-      button.style.background = '#aaa';
-      localStorage.setItem(key, "reserved");
-    }
-
-    function addWish(event) {
-      event.preventDefault();
-      const name = document.getElementById("guestName").value;
-      const message = document.getElementById("wish").value;
-      const container = document.getElementById("wishList");
-      const div = document.createElement("div");
-      div.innerHTML = `<strong>${name}</strong><p>${message}</p><hr>`;
-      container.prepend(div);
-      event.target.reset();
-    }
-
-    window.onload = () => {
-      ['item1','item2','item3'].forEach((key, idx) => {
-        if (localStorage.getItem(key) === 'reserved') {
-          const btn = document.querySelectorAll('#wishlist-items button')[idx];
-          btn.textContent = "Sudah Ditempah";
-          btn.disabled = true;
-          btn.style.background = '#aaa';
-        }
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
