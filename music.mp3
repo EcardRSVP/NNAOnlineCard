@@ -1,0 +1,6 @@
+/wedding-site/
+  ├── index.html
+  ├── style.css
+  ├── script.js
+  ├── music.mp3      ← Muzik latar
+  └── data/guestbook.json (optional, jika simpan ucapan)
