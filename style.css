@@ -33,7 +33,7 @@ body {
   justify-content: center;
 }
 .fixed-footer button:hover {
-  background-color: #ad1457;
+  background-color: #f06292;
 }
 .gallery-grid {
   display: grid;
