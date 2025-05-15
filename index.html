@@ -1,197 +1,85 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Majlis Perkahwinan Ahmad & Aisyah</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: #fff;
-      padding-bottom: 90px;
-    }
-
-    header {
-      background: #fdf1f9;
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    header img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    header h1 {
-      font-size: 24px;
-      margin: 10px 0;
-      color: #b947aa;
-    }
-
-    .countdown-box {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .flip-box {
-      background: #ff6ec4;
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-      width: 80px;
-      height: 80px;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      animation: flipIn 0.8s ease forwards;
-    }
-
-    .flip-box span {
-      font-size: 14px;
-      font-weight: normal;
-      margin-top: 4px;
-    }
-
-    @keyframes flipIn {
-      0% { transform: rotateX(90deg); opacity: 0; }
-      100% { transform: rotateX(0); opacity: 1; }
-    }
-
-    section {
-      display: none;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.5s ease;
-      padding: 30px 20px;
-      min-height: 70vh;
-    }
-
-    section.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #fce7f3;
-      border-top: 1px solid #ccc;
-      display: flex;
-      justify-content: space-around;
-      padding: 10px 0;
-      z-index: 1000;
-    }
-
-    footer a {
-      text-decoration: none;
-      color: #333;
-      text-align: center;
-      font-size: 12px;
-    }
-
-    footer i {
-      font-size: 18px;
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    .music-control {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #fce7f3;
-      padding: 8px 10px;
-      border-radius: 10px;
-      cursor: pointer;
-      z-index: 1001;
-      font-size: 14px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Majlis Perkahwinan</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<body onload="startCountdown(); playMusic();">
+<body>
 
   <!-- Muzik -->
-  <div class="music-control" onclick="toggleMusic()">
-    <i id="musicIcon" class="fas fa-volume-up"></i> Muzik
-  </div>
-  <audio id="bgMusic" autoplay loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+  <audio autoplay loop hidden>
+    <source src="music.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Header -->
-  <header>
-    <img src="https://via.placeholder.com/100" alt="Pasangan">
-    <h1>Ahmad & Aisyah</h1>
+  <!-- Header / Info Majlis -->
+  <section class="hero" id="home">
+    <h1>Majlis Perkahwinan</h1>
+    <p>Ahmad & Aisyah</p>
+    <p>31 Disember 2025 | Dewan Seri Melati, Putrajaya</p>
+  </section>
 
-    <div class="countdown-box">
-      <div id="dayBox" class="flip-box">0<span>Hari</span></div>
-      <div id="hourBox" class="flip-box">0<span>Jam</span></div>
-      <div id="minBox" class="flip-box">0<span>Minit</span></div>
-    </div>
-  </header>
+  <!-- Butang Tetap di Bawah -->
+  <div class="fixed-footer">
+    <button onclick="scrollToSection('rsvp')"><i class="fas fa-envelope"></i> RSVP</button>
+    <button onclick="scrollToSection('gift')"><i class="fas fa-gift"></i> Gift</button>
+    <button onclick="window.open('https://shopee.com.my/yourwishlist')"><i class="fas fa-heart"></i> Wishlist</button>
+    <button onclick="scrollToSection('contact')"><i class="fas fa-phone"></i> Contact</button>
+    <button onclick="scrollToSection('location')"><i class="fas fa-map-marker-alt"></i> Location</button>
+  </div>
 
-  <!-- Kandungan -->
-  <main>
-    <section id="rsvp" class="active">
-      <h2>RSVP</h2>
-      <p>Sila isi borang kehadiran anda:</p>
-      <a href="https://forms.gle/yourformlink" target="_blank">Borang RSVP</a>
-    </section>
+  <!-- RSVP Section -->
+  <section id="rsvp">
+    <h2>RSVP Kehadiran</h2>
+    <form>
+      <input type="text" placeholder="Nama" required>
+      <input type="number" placeholder="Jumlah Kehadiran" required>
+      <input type="text" placeholder="Hadiah / Pemberian (jika ada)">
+      <button type="submit">Hantar</button>
+    </form>
+  </section>
 
-    <section id="moneygift">
-      <h2>Money Gift</h2>
-      <p>Bank: Maybank<br>No Akaun: 1234567890<br>Nama: Ahmad & Aisyah</p>
-    </section>
+  <!-- Gift Section -->
+  <section id="gift">
+    <h2>Maklumat Hadiah</h2>
+    <p>Boleh beri sumbangan ke:</p>
+    <p>Maybank - 1234567890 (Ahmad)</p>
+  </section>
 
-    <section id="wishlist">
-      <h2>Wishlist</h2>
-      <ul>
-        <li>Set Periuk</li>
-        <li>Baucar IKEA</li>
-        <li>Set Pinggan Mangkuk</li>
-      </ul>
-    </section>
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Hubungi Kami</h2>
+    <p><i class="fas fa-phone"></i> Ahmad: <a href="tel:0112345678">011-2345 678</a></p>
+    <p><i class="fas fa-phone"></i> Aisyah: <a href="tel:0123456789">012-345 6789</a></p>
+  </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p><i class="fas fa-phone-alt"></i> <a href="tel:+60123456789">+60 12-345 6789</a></p>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:jemputan@email.com">jemputan@email.com</a></p>
-    </section>
+  <!-- Location Section -->
+  <section id="location">
+    <h2>Lokasi Majlis</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.526197408273!2d101.684207!3d3.1357169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4be0e77d7c91%3A0x92ffcc760c54676f!2sPutrajaya"
+      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+  </section>
 
-    <section id="location">
-      <h2>Lokasi Majlis</h2>
-      <p>Dewan Seri Impian, Kuala Lumpur</p>
-      <a href="https://maps.google.com" target="_blank">Buka Google Maps</a>
-    </section>
-  </main>
+  <!-- Guestbook -->
+  <section id="guestbook">
+    <h2>Ucapan Tetamu</h2>
+    <form onsubmit="addWish(event)">
+      <input type="text" id="guestName" placeholder="Nama Anda" required>
+      <textarea id="wish" placeholder="Ucapan..." required></textarea>
+      <button type="submit">Hantar Ucapan</button>
+    </form>
+    <div id="wishList"></div>
+  </section>
 
-  <!-- Footer -->
+  <!-- Hashtag -->
   <footer>
-    <a href="#" onclick="showSection('rsvp')"><i class="fas fa-clipboard-check"></i>RSVP</a>
-    <a href="#" onclick="showSection('moneygift')"><i class="fas fa-money-bill-wave"></i>Gift</a>
-    <a href="#" onclick="showSection('wishlist')"><i class="fas fa-gift"></i>Wishlist</a>
-    <a href="#" onclick="showSection('contact')"><i class="fas fa-phone-alt"></i>Contact</a>
-    <a href="#" onclick="showSection('location')"><i class="fas fa-map-marker-alt"></i>Lokasi</a>
+    <p>#AhmadAisyahForever</p>
   </footer>
 
-  <!-- JS Countdown + Muzik -->
-  <script>
-    const weddingDate = new Date("2025-12-25T00:00:00").getTime();
-
-    function startCountdown() {
-      setInterval(() => {
-        const now = new Date().getTime();
-        const distance = weddingDate - now;
-
-        const days = Math.floor(distance / (1000
+  <script src="script.js"></script>
+</body>
+</html>
