@@ -3,83 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Majlis Perkahwinan</title>
+  <title>Jemputan Perkahwinan</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <!-- Laman Depan -->
+  <section id="front" class="active">
+    <div class="front-content">
+      <h1>Majlis Perkahwinan</h1>
+      <h2>Ahmad & Aisyah</h2>
+      <p>31 Disember 2025</p>
+      <button id="openBtn">Buka</button>
+    </div>
+  </section>
 
   <!-- Muzik -->
-  <audio autoplay loop hidden>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
+  <audio id="bgMusic" src="music.mp3" loop></audio>
 
-  <!-- Header / Info Majlis -->
-  <section class="hero" id="home">
-    <h1>Majlis Perkahwinan</h1>
-    <p>Ahmad & Aisyah</p>
-    <p>31 Disember 2025 | Dewan Seri Melati, Putrajaya</p>
-  </section>
+  <!-- Seksyen Utama -->
+  <main id="mainContent" style="display: none;">
+    <!-- Maklumat Majlis -->
+    <section id="info" class="section">
+      <h2>Maklumat Majlis</h2>
+      <p>Tarikh: 31 Disember 2025</p>
+      <p>Masa: 11:00 pagi - 4:00 petang</p>
+      <p>Lokasi: Dewan Seri Melati, Putrajaya</p>
+    </section>
 
-  <!-- Butang Tetap di Bawah -->
+    <!-- RSVP -->
+    <section id="rsvp" class="section">
+      <h2>RSVP</h2>
+      <form>
+        <input type="text" placeholder="Nama" required>
+        <input type="number" placeholder="Jumlah Kehadiran" required>
+        <button type="submit">Hantar</button>
+      </form>
+    </section>
+
+    <!-- Wedding Gift -->
+    <section id="gift" class="section">
+      <h2>Hadiah Perkahwinan</h2>
+      <p>Bank Transfer:</p>
+      <p>Maybank - 1234567890 (Ahmad)</p>
+    </section>
+
+    <!-- Wishlist -->
+    <section id="wishlist" class="section">
+      <h2>Wishlist Shopee</h2>
+      <ul id="wishlist-items">
+        <li><span>Set Pinggan 🍽️</span><button onclick="markReserved(this, 'item1')">Sudah Ditempah</button></li>
+        <li><span>Kipas 🌀</span><button onclick="markReserved(this, 'item2')">Sudah Ditempah</button></li>
+        <li><span>Blender 🥤</span><button onclick="markReserved(this, 'item3')">Sudah Ditempah</button></li>
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <h2>Hubungi</h2>
+      <p><i class="fas fa-phone"></i> Ahmad: <a href="tel:0112345678">011-2345 678</a></p>
+      <p><i class="fas fa-phone"></i> Aisyah: <a href="tel:0123456789">012-345 6789</a></p>
+    </section>
+
+    <!-- Location -->
+    <section id="location" class="section">
+      <h2>Lokasi</h2>
+      <iframe src="https://www.google.com/maps/embed?..." width="100%" height="300" style="border:0;" loading="lazy"></iframe>
+      <p><a href="https://waze.com/ul?ll=3.1357,101.6842" target="_blank">Buka di Waze</a></p>
+    </section>
+
+    <!-- Doa -->
+    <section id="doa" class="section">
+      <h2>Doa Pengantin</h2>
+      <p>Barakallahu lakuma wa baraka alaikuma wa jama'a bainakuma fi khair</p>
+    </section>
+
+    <!-- Ucapan & Guestbook -->
+    <section id="ucapan" class="section">
+      <h2>Ucapan Tetamu</h2>
+      <form onsubmit="addWish(event)">
+        <input type="text" id="guestName" placeholder="Nama Anda" required>
+        <textarea id="wish" placeholder="Ucapan..." required></textarea>
+        <button type="submit">Hantar Ucapan</button>
+      </form>
+      <div id="wishList"></div>
+    </section>
+
+    <!-- Hashtag -->
+    <footer>
+      <p>#AhmadAisyahForever</p>
+    </footer>
+  </main>
+
+  <!-- Navigasi Bawah Sticky -->
   <div class="fixed-footer">
-    <button onclick="scrollToSection('rsvp')"><i class="fas fa-envelope"></i> RSVP</button>
-    <button onclick="scrollToSection('gift')"><i class="fas fa-gift"></i> Gift</button>
-    <button onclick="window.open('https://shopee.com.my/yourwishlist')"><i class="fas fa-heart"></i> Wishlist</button>
-    <button onclick="scrollToSection('contact')"><i class="fas fa-phone"></i> Contact</button>
-    <button onclick="scrollToSection('location')"><i class="fas fa-map-marker-alt"></i> Location</button>
+    <button onclick="scrollToSection('info')"><i class="fas fa-info-circle"></i></button>
+    <button onclick="scrollToSection('rsvp')"><i class="fas fa-envelope"></i></button>
+    <button onclick="scrollToSection('gift')"><i class="fas fa-gift"></i></button>
+    <button onclick="scrollToSection('wishlist')"><i class="fas fa-heart"></i></button>
+    <button onclick="scrollToSection('contact')"><i class="fas fa-phone"></i></button>
+    <button onclick="scrollToSection('location')"><i class="fas fa-map-marker-alt"></i></button>
+    <button onclick="scrollToSection('ucapan')"><i class="fas fa-comment-dots"></i></button>
   </div>
 
-  <!-- RSVP Section -->
-  <section id="rsvp">
-    <h2>RSVP Kehadiran</h2>
-    <form>
-      <input type="text" placeholder="Nama" required>
-      <input type="number" placeholder="Jumlah Kehadiran" required>
-      <input type="text" placeholder="Hadiah / Pemberian (jika ada)">
-      <button type="submit">Hantar</button>
-    </form>
-  </section>
+  <script>
+    document.getElementById("openBtn").addEventListener("click", function() {
+      document.getElementById("front").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
+      document.getElementById("bgMusic").play();
+    });
 
-  <!-- Gift Section -->
-  <section id="gift">
-    <h2>Maklumat Hadiah</h2>
-    <p>Boleh beri sumbangan ke:</p>
-    <p>Maybank - 1234567890 (Ahmad)</p>
-  </section>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Hubungi Kami</h2>
-    <p><i class="fas fa-phone"></i> Ahmad: <a href="tel:0112345678">011-2345 678</a></p>
-    <p><i class="fas fa-phone"></i> Aisyah: <a href="tel:0123456789">012-345 6789</a></p>
-  </section>
+    function markReserved(button, key) {
+      if (localStorage.getItem(key) === "reserved") return;
+      button.textContent = "Sudah Ditempah";
+      button.disabled = true;
+      button.style.background = '#aaa';
+      localStorage.setItem(key, "reserved");
+    }
 
-  <!-- Location Section -->
-  <section id="location">
-    <h2>Lokasi Majlis</h2>
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.526197408273!2d101.684207!3d3.1357169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4be0e77d7c91%3A0x92ffcc760c54676f!2sPutrajaya"
-      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
-    </iframe>
-  </section>
+    function addWish(event) {
+      event.preventDefault();
+      const name = document.getElementById("guestName").value;
+      const message = document.getElementById("wish").value;
+      const container = document.getElementById("wishList");
+      const div = document.createElement("div");
+      div.innerHTML = `<strong>${name}</strong><p>${message}</p><hr>`;
+      container.prepend(div);
+      event.target.reset();
+    }
 
-  <!-- Guestbook -->
-  <section id="guestbook">
-    <h2>Ucapan Tetamu</h2>
-    <form onsubmit="addWish(event)">
-      <input type="text" id="guestName" placeholder="Nama Anda" required>
-      <textarea id="wish" placeholder="Ucapan..." required></textarea>
-      <button type="submit">Hantar Ucapan</button>
-    </form>
-    <div id="wishList"></div>
-  </section>
-
-  <!-- Hashtag -->
-  <footer>
-    <p>#AhmadAisyahForever</p>
-  </footer>
-
-  <script src="script.js"></script>
+    window.onload = () => {
+      ['item1','item2','item3'].forEach((key, idx) => {
+        if (localStorage.getItem(key) === 'reserved') {
+          const btn = document.querySelectorAll('#wishlist-items button')[idx];
+          btn.textContent = "Sudah Ditempah";
+          btn.disabled = true;
+          btn.style.background = '#aaa';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
