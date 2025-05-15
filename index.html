@@ -1,108 +1,66 @@
-
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jemputan Perkahwinan</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kad Kahwin Interaktif</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <section id="front" class="active">
-    <div class="front-content">
-      <h1>Majlis Perkahwinan</h1>
-      <h2>Ahmad & Aisyah</h2>
-      <p>31 Disember 2025</p>
-      <button id="openBtn">Buka</button>
-    </div>
+
+<section id="front" class="active section">
+  <h1>Majlis Perkahwinan</h1>
+  <h2>Ali & Siti</h2>
+  <p>Tarikh: 15 Mei 2025</p>
+  <button id="openBtn">Buka Jemputan</button>
+  <audio id="bgMusic" src="music.mp3" loop></audio>
+</section>
+
+<main id="mainContent" style="display:none;">
+  <section id="info" class="section" style="display:none;">
+    <h2>Maklumat Majlis</h2>
+    <p>Tarikh: 15 Mei 2025, Lokasi: Dewan Serbaguna</p>
   </section>
 
-  <audio id="bgMusic" src="music.mp3" loop></audio>
+  <section id="rsvp" class="section" style="display:none;">
+    <h2>RSVP</h2>
+    <form>
+      <input type="text" placeholder="Nama" required /><br />
+      <input type="tel" placeholder="Nombor Telefon" required /><br />
+      <button type="submit">Hantar</button>
+    </form>
+  </section>
 
-  <main id="mainContent" style="display: none;">
-    <section id="info" class="section">
-      <h2>Maklumat Majlis</h2>
-      <p>Tarikh: 31 Disember 2025</p>
-      <p>Masa: 11:00 pagi - 4:00 petang</p>
-      <p>Lokasi: Dewan Seri Melati, Putrajaya</p>
-    </section>
+  <section id="wishlist" class="section" style="display:none;">
+    <h2>Wishlist</h2>
+    <p>Sila pilih hadiah di Shopee dan maklumkan kami.</p>
+    <a href="https://shopee.com.my" target="_blank">Link Shopee</a>
+  </section>
+</main>
 
-    <section id="gallery" class="section">
-      <h2>Kenangan Manis</h2>
-      <div class="gallery-grid">
-        <img src="img1.jpg" alt="gambar1">
-        <img src="img2.jpg" alt="gambar2">
-        <img src="img3.jpg" alt="gambar3">
-      </div>
-    </section>
+<div class="fixed-footer">
+  <button onclick="showSection('info')" title="Maklumat"><i class="fas fa-info-circle"></i></button>
+  <button onclick="showSection('rsvp')" title="RSVP"><i class="fas fa-envelope"></i></button>
+  <button onclick="showSection('wishlist')" title="Wishlist"><i class="fas fa-gift"></i></button>
+</div>
 
-    <section id="rsvp" class="section">
-      <h2>RSVP</h2>
-      <form>
-        <input type="text" placeholder="Nama" required>
-        <input type="number" placeholder="Jumlah Kehadiran" required>
-        <button type="submit">Hantar</button>
-      </form>
-    </section>
+<script>
+  const bgMusic = document.getElementById('bgMusic');
+  document.getElementById('openBtn').addEventListener('click', () => {
+    document.getElementById('front').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'block';
+    bgMusic.play().catch(e => console.log('Autoplay prevented'));
+  });
 
-    <section id="gift" class="section">
-      <h2>Hadiah Perkahwinan</h2>
-      <p>Bank Transfer:</p>
-      <p>Maybank - 1234567890 (Ahmad)</p>
-    </section>
+  function showSection(id) {
+    const sections = document.querySelectorAll('main > section');
+    sections.forEach(section => {
+      section.style.display = (section.id === id) ? 'block' : 'none';
+    });
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  }
+</script>
 
-    <section id="wishlist" class="section">
-      <h2>Wishlist Shopee</h2>
-      <ul id="wishlist-items">
-        <li><span>Set Pinggan 🍽️</span><button onclick="markReserved(this, 'item1')">Sudah Ditempah</button></li>
-        <li><span>Kipas 🌀</span><button onclick="markReserved(this, 'item2')">Sudah Ditempah</button></li>
-        <li><span>Blender 🥤</span><button onclick="markReserved(this, 'item3')">Sudah Ditempah</button></li>
-      </ul>
-    </section>
-
-    <section id="contact" class="section">
-      <h2>Hubungi</h2>
-      <p><i class="fas fa-phone"></i> Ahmad: <a href="tel:0112345678">011-2345 678</a></p>
-      <p><i class="fas fa-phone"></i> Aisyah: <a href="tel:0123456789">012-345 6789</a></p>
-    </section>
-
-    <section id="location" class="section">
-      <h2>Lokasi</h2>
-      <iframe src="https://www.google.com/maps/embed?..." width="100%" height="300" style="border:0;" loading="lazy"></iframe>
-      <p><a href="https://waze.com/ul?ll=3.1357,101.6842" target="_blank">Buka di Waze</a></p>
-    </section>
-
-    <section id="doa" class="section">
-      <h2>Doa Pengantin</h2>
-      <p>Barakallahu lakuma wa baraka alaikuma wa jama'a bainakuma fi khair</p>
-    </section>
-
-    <section id="ucapan" class="section">
-      <h2>Ucapan Tetamu</h2>
-      <form onsubmit="addWish(event)">
-        <input type="text" id="guestName" placeholder="Nama Anda" required>
-        <textarea id="wish" placeholder="Ucapan..." required></textarea>
-        <button type="submit">Hantar Ucapan</button>
-      </form>
-      <div id="wishList"></div>
-    </section>
-
-    <footer>
-      <p>#AhmadAisyahForever</p>
-    </footer>
-  </main>
-
-  <div class="fixed-footer">
-    <button onclick="scrollToSection('info')"><i class="fas fa-info-circle"></i></button>
-    <button onclick="scrollToSection('rsvp')"><i class="fas fa-envelope"></i></button>
-    <button onclick="scrollToSection('gift')"><i class="fas fa-gift"></i></button>
-    <button onclick="scrollToSection('wishlist')"><i class="fas fa-heart"></i></button>
-    <button onclick="scrollToSection('contact')"><i class="fas fa-phone"></i></button>
-    <button onclick="scrollToSection('location')"><i class="fas fa-map-marker-alt"></i></button>
-    <button onclick="scrollToSection('ucapan')"><i class="fas fa-comment-dots"></i></button>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
