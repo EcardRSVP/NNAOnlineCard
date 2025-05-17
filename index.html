@@ -73,6 +73,81 @@
 
 
 
+    <!-- Page 5 -->
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Footer RSVP Berwarna</title>
+  <style>
+    body {
+      margin: 0;
+      padding-bottom: 70px;
+      font-family: sans-serif;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+      border-top: 1px solid #ddd;
+    }
+
+    .footer-icon {
+      font-size: 24px;
+      text-align: center;
+      cursor: pointer;
+      color: #888;
+    }
+
+    .footer-icon span {
+      display: block;
+      font-size: 12px;
+    }
+
+    .footer-icon.rsvp {
+      color: #ff4081; /* warna RSVP pink */
+    }
+
+    .footer-icon.active {
+      font-weight: bold;
+      color: #2196f3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="footer">
+    <div class="footer-icon rsvp" onclick="alert('RSVP ditekan')">
+      💌
+      <span>RSVP</span>
+    </div>
+    <div class="footer-icon" onclick="alert('Wishlist')">
+      🎁
+      <span>Wishlist</span>
+    </div>
+    <div class="footer-icon" onclick="alert('Lokasi')">
+      📍
+      <span>Lokasi</span>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+
   
     <!-- Page 5 -->
 <!DOCTYPE html>
@@ -234,11 +309,11 @@
 
   <!-- Footer Sticky -->
   <div class="footer">
-    <div class="footer-icon" onclick="alert('Seksyen RSVP')">
+    <div class="footer-icon" onclick="toggleSection('Seksyen RSVP')">
       💌
       <span>RSVP</span>
     </div>
-        <div class="footer-icon" onclick="alert('Seksyen MoneyGift')">
+        <div class="footer-icon" onclick="toggleSection('Seksyen MoneyGift')">
       💌
       <span>Money Gift</span>
     </div>
@@ -250,7 +325,7 @@
       📞
       <span>Contact</span>
     </div>
-    <div class="footer-icon" onclick="alert('Location')">
+    <div class="footer-icon" onclick="toggleSection('Location')">
       📍
       <span>Location</span>
     </div>
