@@ -75,64 +75,87 @@
 
 
    <!-- Page 5 -->
-  <!DOCTYPE html>
+   <section class="page">
+<!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Menanti Hari Bahagia</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #fff0f5;
+      background: #fffafc;
       color: #333;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
       min-height: 100vh;
-      text-align: center;
       padding: 20px;
+      text-align: center;
     }
 
     h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
       color: #c2185b;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 20px;
     }
 
     .countdown {
       display: flex;
-      gap: 20px;
       justify-content: center;
-      margin-top: 20px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .countdown div {
       background: white;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      min-width: 70px;
+      padding: 15px;
+      border-radius: 12px;
+      min-width: 60px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     }
 
-    .countdown div span {
-      display: block;
-      font-size: 2em;
-      font-weight: bold;
+    .countdown span {
+      font-size: 1.5rem;
       color: #c2185b;
+      font-weight: bold;
     }
 
     .label {
-      font-size: 0.9em;
-      margin-top: 5px;
+      font-size: 0.8rem;
+      margin-top: 4px;
     }
 
     .footer {
-      margin-top: 40px;
-      font-size: 0.9em;
+      margin-top: 30px;
+      font-size: 0.85rem;
       color: #888;
+    }
+
+    @media (min-width: 480px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .countdown div {
+        min-width: 80px;
+      }
+
+      .countdown span {
+        font-size: 2rem;
+      }
+
+      .label {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -158,6 +181,8 @@
       <span id="seconds">0</span>
       <div class="label">Saat</div>
     </div>
+
+      <p>#liyaterciptauntukhaikal</p>
   </div>
 
 
@@ -185,7 +210,7 @@
     }
 
     setInterval(updateCountdown, 1000);
-    updateCountdown(); // run once immediately
+    updateCountdown();
   </script>
 
 </body>
