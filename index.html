@@ -79,20 +79,21 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sticky Footer Toggle</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer Scroll Section</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding-bottom: 70px; /* Untuk beri ruang bawah footer */
+      padding-bottom: 80px;
+      font-family: sans-serif;
+      scroll-behavior: smooth; /* smooth scroll effect */
     }
 
-    .section {
-      display: none;
-      padding: 20px;
-      background: #f9f9f9;
+    section {
+      padding: 60px 20px;
+      border-bottom: 1px solid #ccc;
+      min-height: 300px;
     }
 
     .footer {
@@ -102,35 +103,74 @@
       right: 0;
       height: 60px;
       background-color: #ffffff;
-      box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
       display: flex;
       justify-content: space-around;
       align-items: center;
+      box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
       border-top: 1px solid #ddd;
+      z-index: 1000;
     }
 
     .footer-icon {
-      font-size: 24px;
       text-align: center;
+      font-size: 20px;
       cursor: pointer;
     }
 
     .footer-icon span {
       display: block;
-      font-size: 12px;
+      font-size: 11px;
     }
 
-    .active-section {
-      display: block !important;
-    }
+    /* Warna ikon */
+    .rsvp { color: #e91e63; }
+    .money { color: #4caf50; }
+    .contact { color: #ff9800; }
+    .wishlist { color: #9c27b0; }
+    .location { color: #03a9f4; }
+    .calendar { color: #607d8b; }
   </style>
 </head>
 <body>
 
-  <!-- Bahagian yang akan muncul -->
-  <div id="Seksyen Wishlist" class="section">
-    <h2>🎁 Wishlist</h2>
+  <!-- Seksyen-seksyen -->
+    <section id="Seksyen RSVP" class="active">
+    <h2>💌 RSVP</h2>
+      <form>
+        <input type="text" placeholder="Nama Anda" required>
+            <label>
+      <input type="radio" name="attendance" value="Hadir" required>
+      Hadir
+    </label>
+    <label>
+      <input type="radio" name="attendance" value="Tidak Hadir">
+      Tidak Hadir
+    </label><br><br>
+        <label for="jumlah">Bilangan Kehadiran</label><br>
+  <input type="number" id="jumlah" name="jumlah" min="1"><br><br>
 
+        <button type="submit">Hantar</button>
+      </form>
+    </section>
+
+
+
+
+  <section id="Seksyen Money Gift">
+    <h2>💸 Money Gift</h2>
+     <p><strong>Nama Bank :</strong> Maybank Berhad</p>
+     <p><strong>Nama :</strong> Muhammad Haikal Bin Zulkefli</p>
+     <p><strong>Nombor Akaun: <span id="rek">1234567890</span></p>
+      <button onclick="copyRek()">Copy</button>
+        <p>Imbas kod QR di bawah</p>
+        <img src="qr-code.jpeg" alt="Kod QR">
+  </section>
+
+
+
+    
+  <section id="Seksyen Wishlist">
+    <h2>🎁 Wishlist</h2>
 <!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -195,7 +235,7 @@
     <img src="WhatsApp Image 2025-05-17 at 11.20.19 PM.jpeg" alt="Set Cadar">
     <div class="gift-info">
       <div class="gift-title">Set Cadar</div>
-      <a href="https://s.shopee.com.my/7fNH3P2qHp" class="btn btn-link" target="_blank">🔗 Link Item Shopee</a>
+      <a href="https://s.shopee.com.my/7fNH3P2qHp" class="btn btn-link" target="_blank">🔗 Link Shopee</a>
       <button class="btn btn-tempah" onclick="tempah(this)">Tempah</button>
     </div>
   </div>
@@ -204,7 +244,7 @@
     <img src="https://via.placeholder.com/80" alt="Iron">
     <div class="gift-info">
       <div class="gift-title">Philips Steam Iron</div>
-      <a href="https://shopee.com" class="btn btn-link" target="_blank">🔗 Link Item Shopee</a>
+      <a href="https://shopee.com" class="btn btn-link" target="_blank">🔗 Link Shopee</a>
       <button class="btn btn-tempah" onclick="tempah(this)">Tempah</button>
     </div>
   </div>
@@ -213,7 +253,7 @@
     <img src="https://via.placeholder.com/80" alt="Blender">
     <div class="gift-info">
       <div class="gift-title">Tefal Blender BL2B01</div>
-      <a href="https://shopee.com" class="btn btn-link" target="_blank">🔗 Link Item Shopee</a>
+      <a href="https://shopee.com" class="btn btn-link" target="_blank">🔗 Link Shopee</a>
       <button class="btn btn-tempah" onclick="tempah(this)">Tempah</button>
     </div>
   </div>
@@ -229,139 +269,13 @@
 
 </body>
 </html>
-
-
-  
-
-
-  <div class="footer">
-    <div class="footer-icon" onclick="toggleSection('Seksyen RSVP')">
-      💌
-      <span>RSVP</span>
-    </div>
-        <div class="footer-icon" onclick="toggleSection('Seksyen MoneyGift')">
-      💌
-      <span>Money Gift</span>
-    </div>
-    <div class="footer-icon" onclick="toggleSection('Seksyen Wishlist')">
-      💸
-      <span>Wishlist</span>
-    </div>
-    <div class="footer-icon" onclick="toggleSection('Seksyen Contact')">
-      📞
-      <span>Contact</span>
-    </div>
-    <div class="footer-icon" onclick="toggleSection('Location')">
-      📍
-      <span>Location</span>
-    </div>
-
-    
-  </div>
-
-  <script>
-    function toggleSection(id) {
-      const section = document.getElementById(id);
-      // Tutup semua section dahulu (kalau banyak)
-      document.querySelectorAll('.section').forEach(el => el.classList.remove('active-section'));
-      // Toggle section yang ditekan
-      section.classList.toggle('active-section');
-    }
-  </script>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </section>
 
 
 
   
-
-
-
-  
-  <!-- Seksyen RSVP -->
-    <section id="rsvp" class="active">
-<h2>RSVP</h2>
-      <form>
-        <input type="text" placeholder="Nama Anda" required>
-            <label>
-      <input type="radio" name="attendance" value="Hadir" required>
-      Hadir
-    </label>
-    <label>
-      <input type="radio" name="attendance" value="Tidak Hadir">
-      Tidak Hadir
-    </label><br><br>
-        <label for="jumlah">Bilangan Kehadiran</label><br>
-  <input type="number" id="jumlah" name="jumlah" min="1"><br><br>
-
-        <button type="submit">Hantar</button>
-      </form>
-    </section>
-
-
-
-  
-  <!-- Seksyen Money Gift -->
-  <section id="moneygift">
-    <h2>Money Gift</h2>
-     <p><strong>Nama Bank :</strong> Maybank Berhad</p>
-     <p><strong>Nama :</strong> Muhammad Haikal Bin Zulkefli</p>
-     <p><strong>Nombor Akaun: <span id="rek">1234567890</span></p>
-      <button onclick="copyRek()">Copy</button>
-        <p>Imbas kod QR di bawah</p>
-        <img src="qr-code.jpeg" alt="Kod QR">
-
-
-
-    
-  <!-- Seksyen Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
+   <section id="Seksyen Contact">
+    <h2>📞 Contact</h2>
     <p>
       <i class="fas fa-phone-alt"></i> <a href="tel:+60198813267">+6019-8813267</a><br>
       <i class="fas fa-phone-alt"></i> <a href="tel:+601157265723">+6011-57265723</a><br>
@@ -371,9 +285,8 @@
 
 
     
-  <!-- Seksyen Location -->
-  <section id="location">
-    <h2>Location</h2>
+    <section id="Seksyen Location">
+    <h2>📍 Lokasi</h2>
       Dewan Bandar Behrang 2020<br>
       <a class="button" href="https://maps.app.goo.gl/KYZcM4NcTKrCdBi78?g_st=aw" target="_blank">Google Maps</a>
     </p>
@@ -381,7 +294,40 @@
     </p>
   </section>
 
+    
 
+  
+  <!-- Footer Sticky -->
+  <div class="footer">
+    <div class="footer-icon rsvp" onclick="toggleSection('Seksyen RSVP')">
+      💌 <span>RSVP</span>
+    </div>
+    <div class="footer-icon money" onclick="toggleSection('Seksyen Money Gift')">
+      💸 <span>Gift</span>
+    </div>
+    <div class="footer-icon wishlist" onclick="toggleSection('Seksyen Wishlist')">
+      🎁 <span>Wishlist</span>
+    </div>
+    <div class="footer-icon contact" onclick="toggleSection('Seksyen Contact')">
+      📞 <span>Contact</span>
+    </div>
+    <div class="footer-icon location" onclick="toggleSection('Seksyen Location')">
+      📍 <span>Lokasi</span>
+    </div>
+  </div>
+
+  <!-- JavaScript Scroll Function -->
+  <script>
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  </script>
+
+</body>
+</html>
 
         
 
@@ -430,7 +376,9 @@
 
 
 
-    
+
+
+  
   </div>
  
   <script>
