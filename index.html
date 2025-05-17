@@ -74,46 +74,61 @@
 
 
   
-  <!-- Seksyen RSVP -->
-    <section id="rsvp" class="active">
-<h2>RSVP</h2>
-      <form>
-        <input type="text" placeholder="Nama Anda" required>
-            <label>
-      <input type="radio" name="attendance" value="Hadir" required>
-      Hadir
-    </label>
-    <label>
-      <input type="radio" name="attendance" value="Tidak Hadir">
-      Tidak Hadir
-    </label><br><br>
-        <label for="jumlah">Bilangan Kehadiran</label><br>
-  <input type="number" id="jumlah" name="jumlah" min="1"><br><br>
+    <!-- Page 5 -->
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sticky Footer Toggle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding-bottom: 70px; /* Untuk beri ruang bawah footer */
+    }
 
-        <button type="submit">Hantar</button>
-      </form>
-    </section>
+    .section {
+      display: none;
+      padding: 20px;
+      background: #f9f9f9;
+    }
 
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: #ffffff;
+      box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border-top: 1px solid #ddd;
+    }
 
+    .footer-icon {
+      font-size: 24px;
+      text-align: center;
+      cursor: pointer;
+    }
 
-  
-  <!-- Seksyen Money Gift -->
-  <section id="moneygift">
-    <h2>Money Gift</h2>
-     <p><strong>Nama Bank :</strong> Maybank Berhad</p>
-     <p><strong>Nama :</strong> Muhammad Haikal Bin Zulkefli</p>
-     <p><strong>Nombor Akaun: <span id="rek">1234567890</span></p>
-      <button onclick="copyRek()">Copy</button>
-        <p>Imbas kod QR di bawah</p>
-        <img src="qr-code.jpeg" alt="Kod QR">
+    .footer-icon span {
+      display: block;
+      font-size: 12px;
+    }
 
+    .active-section {
+      display: block !important;
+    }
+  </style>
+</head>
+<body>
 
-
-    
-  <!-- Seksyen Wishlist -->
-  <section id="wishlist">
-    <h2>Wishlist</h2>
-    <div id="wishlist"></div>
+  <!-- Bahagian yang akan muncul -->
+  <div id="Seksyen Wishlist" class="section">
+    <h2>🎁 Wishlist</h2>
 
 <!DOCTYPE html>
 <html lang="ms">
@@ -215,8 +230,134 @@
 </html>
 
 
+  
+
+  <!-- Footer Sticky -->
+  <div class="footer">
+    <div class="footer-icon" onclick="alert('Seksyen RSVP')">
+      💌
+      <span>RSVP</span>
+    </div>
+        <div class="footer-icon" onclick="alert('Seksyen MoneyGift')">
+      💌
+      <span>Money Gift</span>
+    </div>
+    <div class="footer-icon" onclick="toggleSection('Seksyen Wishlist')">
+      💸
+      <span>Wishlist</span>
+    </div>
+    <div class="footer-icon" onclick="toggleSection('Seksyen Contact')">
+      📞
+      <span>Contact</span>
+    </div>
+    <div class="footer-icon" onclick="alert('Location')">
+      📍
+      <span>Location</span>
+    </div>
+
+    
+  </div>
+
+  <script>
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      // Tutup semua section dahulu (kalau banyak)
+      document.querySelectorAll('.section').forEach(el => el.classList.remove('active-section'));
+      // Toggle section yang ditekan
+      section.classList.toggle('active-section');
+    }
+  </script>
+
+</body>
+</html>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <!-- Seksyen RSVP -->
+    <section id="rsvp" class="active">
+<h2>RSVP</h2>
+      <form>
+        <input type="text" placeholder="Nama Anda" required>
+            <label>
+      <input type="radio" name="attendance" value="Hadir" required>
+      Hadir
+    </label>
+    <label>
+      <input type="radio" name="attendance" value="Tidak Hadir">
+      Tidak Hadir
+    </label><br><br>
+        <label for="jumlah">Bilangan Kehadiran</label><br>
+  <input type="number" id="jumlah" name="jumlah" min="1"><br><br>
+
+        <button type="submit">Hantar</button>
+      </form>
+    </section>
+
+
+
+  
+  <!-- Seksyen Money Gift -->
+  <section id="moneygift">
+    <h2>Money Gift</h2>
+     <p><strong>Nama Bank :</strong> Maybank Berhad</p>
+     <p><strong>Nama :</strong> Muhammad Haikal Bin Zulkefli</p>
+     <p><strong>Nombor Akaun: <span id="rek">1234567890</span></p>
+      <button onclick="copyRek()">Copy</button>
+        <p>Imbas kod QR di bawah</p>
+        <img src="qr-code.jpeg" alt="Kod QR">
+
+
+
+    
   <!-- Seksyen Contact -->
   <section id="contact">
     <h2>Contact</h2>
