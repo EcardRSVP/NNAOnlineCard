@@ -47,11 +47,11 @@
     <!-- Page 3 -->
 <section class="page">
       <p><strong>PADA</strong><br>
-        Sabtu, 31 Mei 2025</p>
-        Bersamaan 3 Zulhijjah 1446H</p>
+        Rabu, 31 Disember 2025</p>
+        Bersamaan 10 Rejab 1447H</p>
 
       <p><strong>BERTEMPAT DI</strong><br>
-      Masjid Jamek Tanjong Malim</p>
+      Dewan Bandar Behrang 2020m</p>
         
       <p><strong>ATURCARA MAJLIS</strong><br>
       <strong>Jamuan Makan:</strong>11.00 am - 5.00 pm<br>
@@ -74,8 +74,141 @@
 
 
 
+   <!-- Page 5 -->
+    <section class="page">
+  <title>Countdown Flip Box</title>
+  <style>
+    body {
+      background: #111;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .countdown {
+      display: flex;
+      gap: 20px;
+    }
 
-    <!-- Page 5 -->
+    .unit {
+      text-align: center;
+    }
+
+    .label {
+      font-size: 14px;
+      margin-top: 10px;
+      color: #aaa;
+    }
+
+    .flip-box {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+    }
+
+    .digit {
+      position: relative;
+      width: 40px;
+      height: 60px;
+      background: #222;
+      border-radius: 8px;
+      box-shadow: inset 0 -4px 0 rgba(0,0,0,0.5);
+      font-size: 2.5em;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.5s ease;
+      transform-style: preserve-3d;
+    }
+
+    .flip {
+      animation: flip 0.6s;
+    }
+
+    @keyframes flip {
+      0% { transform: rotateX(0); }
+      50% { transform: rotateX(90deg); }
+      100% { transform: rotateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="countdown">
+    <div class="unit">
+      <div class="flip-box" id="days"></div>
+      <div class="label">Hari</div>
+    </div>
+    <div class="unit">
+      <div class="flip-box" id="hours"></div>
+      <div class="label">Jam</div>
+    </div>
+    <div class="unit">
+      <div class="flip-box" id="minutes"></div>
+      <div class="label">Minit</div>
+    </div>
+    <div class="unit">
+      <div class="flip-box" id="seconds"></div>
+      <div class="label">Saat</div>
+    </div>
+  </div>
+
+  <script>
+    const targetDate = new Date("2025-12-31T11:00:00").getTime();
+
+    function pad(num) {
+      return num.toString().padStart(2, '0');
+    }
+
+    function updateUnit(id, value) {
+      const container = document.getElementById(id);
+      const strVal = pad(value);
+      container.innerHTML = ''; // kosongkan
+
+      for (let digit of strVal) {
+        const span = document.createElement('span');
+        span.className = 'digit flip';
+        span.textContent = digit;
+        container.appendChild(span);
+      }
+    }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        ['days','hours','minutes','seconds'].forEach(id => {
+          updateUnit(id, '00');
+        });
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      updateUnit('days', days);
+      updateUnit('hours', hours);
+      updateUnit('minutes', minutes);
+      updateUnit('seconds', seconds);
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
+</section>
+
+
+
+
+    <!-- Page 6 -->
 <!DOCTYPE html>
 <html lang="ms">
 <head>
