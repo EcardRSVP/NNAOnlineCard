@@ -1,40 +1,23 @@
+// Countdown to wedding date
+const countdownDate = new Date("June 1, 2025 10:00:00").getTime();
 
-document.getElementById("openBtn").addEventListener("click", function() {
-  document.getElementById("front").style.display = "none";
-  document.getElementById("mainContent").style.display = "block";
-  document.getElementById("bgMusic").play();
-});
+const countdownElement = document.getElementById("countdown");
 
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+function updateCountdown() {
+  const now = new Date().getTime();
+  const timeLeft = countdownDate - now;
+
+  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+  countdownElement.innerHTML = `Wedding in ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+  if (timeLeft < 0) {
+    clearInterval(countdownInterval);
+    countdownElement.innerHTML = "Wedding has started!";
+  }
 }
 
-function markReserved(button, key) {
-  if (localStorage.getItem(key) === "reserved") return;
-  button.textContent = "Sudah Ditempah";
-  button.disabled = true;
-  button.style.background = "#aaa";
-  localStorage.setItem(key, "reserved");
-}
-
-function addWish(event) {
-  event.preventDefault();
-  const name = document.getElementById("guestName").value;
-  const message = document.getElementById("wish").value;
-  const container = document.getElementById("wishList");
-  const div = document.createElement("div");
-  div.innerHTML = `<strong>${name}</strong><p>${message}</p><hr>`;
-  container.prepend(div);
-  event.target.reset();
-}
-
-window.onload = () => {
-  ['item1','item2','item3'].forEach((key, idx) => {
-    if (localStorage.getItem(key) === 'reserved') {
-      const btn = document.querySelectorAll('#wishlist-items button')[idx];
-      btn.textContent = "Sudah Ditempah";
-      btn.disabled = true;
-      btn.style.background = '#aaa';
-    }
-  });
-};
+const countdownInterval = setInterval(updateCountdown, 1000);
