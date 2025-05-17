@@ -75,115 +75,104 @@
 
 
    <!-- Page 5 -->
-    <section class="page">
-  <title>Countdown Flip Box</title>
+  <!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kiraan Detik Perkahwinan</title>
   <style>
     body {
-      background: #111;
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      color: #fff;
+      background: #fff0f5;
+      color: #333;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
+      flex-direction: column;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
     }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #c2185b;
+    }
+
     .countdown {
       display: flex;
       gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
     }
 
-    .unit {
-      text-align: center;
+    .countdown div {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      min-width: 70px;
+    }
+
+    .countdown div span {
+      display: block;
+      font-size: 2em;
+      font-weight: bold;
+      color: #c2185b;
     }
 
     .label {
-      font-size: 14px;
-      margin-top: 10px;
-      color: #aaa;
+      font-size: 0.9em;
+      margin-top: 5px;
     }
 
-    .flip-box {
-      display: flex;
-      gap: 5px;
-      justify-content: center;
-    }
-
-    .digit {
-      position: relative;
-      width: 40px;
-      height: 60px;
-      background: #222;
-      border-radius: 8px;
-      box-shadow: inset 0 -4px 0 rgba(0,0,0,0.5);
-      font-size: 2.5em;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: transform 0.5s ease;
-      transform-style: preserve-3d;
-    }
-
-    .flip {
-      animation: flip 0.6s;
-    }
-
-    @keyframes flip {
-      0% { transform: rotateX(0); }
-      50% { transform: rotateX(90deg); }
-      100% { transform: rotateX(0); }
+    .footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #888;
     }
   </style>
 </head>
 <body>
+
+  <h1>Kiraan Detik ke Hari Bahagia 💍</h1>
+  <p><strong>Majlis kami akan berlangsung pada:</strong><br> 21 Disember 2025</p>
+
   <div class="countdown">
-    <div class="unit">
-      <div class="flip-box" id="days"></div>
+    <div>
+      <span id="days">0</span>
       <div class="label">Hari</div>
     </div>
-    <div class="unit">
-      <div class="flip-box" id="hours"></div>
+    <div>
+      <span id="hours">0</span>
       <div class="label">Jam</div>
     </div>
-    <div class="unit">
-      <div class="flip-box" id="minutes"></div>
+    <div>
+      <span id="minutes">0</span>
       <div class="label">Minit</div>
     </div>
-    <div class="unit">
-      <div class="flip-box" id="seconds"></div>
+    <div>
+      <span id="seconds">0</span>
       <div class="label">Saat</div>
     </div>
   </div>
 
+  <div class="footer">
+    ❤️ Terima kasih kerana menjadi sebahagian dari hari istimewa kami.
+  </div>
+
   <script>
-    const targetDate = new Date("2025-12-31T11:00:00").getTime();
-
-    function pad(num) {
-      return num.toString().padStart(2, '0');
-    }
-
-    function updateUnit(id, value) {
-      const container = document.getElementById(id);
-      const strVal = pad(value);
-      container.innerHTML = ''; // kosongkan
-
-      for (let digit of strVal) {
-        const span = document.createElement('span');
-        span.className = 'digit flip';
-        span.textContent = digit;
-        container.appendChild(span);
-      }
-    }
+    const weddingDate = new Date("2025-12-31T11:00:00").getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();
-      const distance = targetDate - now;
+      const distance = weddingDate - now;
 
-      if (distance <= 0) {
-        ['days','hours','minutes','seconds'].forEach(id => {
-          updateUnit(id, '00');
-        });
+      if (distance < 0) {
+        document.querySelector(".countdown").innerHTML = "Majlis telah berlangsung!";
         return;
       }
 
@@ -192,18 +181,18 @@
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      updateUnit('days', days);
-      updateUnit('hours', hours);
-      updateUnit('minutes', minutes);
-      updateUnit('seconds', seconds);
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
     }
 
     setInterval(updateCountdown, 1000);
-    updateCountdown();
+    updateCountdown(); // run once immediately
   </script>
+
 </body>
 </html>
-</section>
 
 
 
