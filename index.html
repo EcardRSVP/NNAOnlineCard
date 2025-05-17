@@ -304,15 +304,27 @@
     <h2>💸 Money Gift</h2>
      <p><strong>Nama Bank :</strong> Maybank Berhad</p>
      <p><strong>Nama :</strong> Muhammad Haikal Bin Zulkefli</p>
-     <p><strong>Nombor Akaun: <span id="rek">1234567890</span></p>
+     <p>Nombor Akaun: <span id="rek">1234567890</span></p>
       <button onclick="copyRek()">Copy</button>
         <p>Imbas kod QR di bawah</p>
         <img src="qr-code.jpeg" alt="Kod QR">
-  </section>
+
+          <script>
+    function copyRek() {
+      const text = document.getElementById("rek").innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Nombor akaun bank telah disalin");
+      });
+    }
+  </script>
+</body>
+</html>
+      </div>
+    </section>
 
 
 
-    
+  
   <section id="Seksyen Wishlist">
     <h2>🎁 Wishlist</h2>
 <!DOCTYPE html>
