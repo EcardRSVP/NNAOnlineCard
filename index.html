@@ -70,6 +70,8 @@
     <!-- Page 4 -->
     <section class="page">
       <h2>Ucapan</h2>
+      <input type="text" placeholder="Nama anda" required>
+      <label>
         <textarea placeholder="Ucapan anda" rows="4"></textarea>
         <button type="submit">Hantar</button>
       </form>
@@ -1153,16 +1155,35 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
-  <title>Ucapan Tetamu</title>
+  <title>Ucapan</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    h1 { color: #333; }
-    .ucapan { border-bottom: 1px solid #ccc; margin-bottom: 10px; padding-bottom: 10px; }
-    .nama { font-weight: bold; }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #fefefe;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .ucapan {
+      background-color: #f0f0f0;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .nama {
+      font-weight: bold;
+      color: #005f73;
+    }
+    .mesej {
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
-  <h1>Ucapan Tetamu</h1>
+  <h1>Ucapan</h1>
 
   <div id="senarai-ucapan">
     <!-- Ucapan akan dimasukkan di sini oleh JavaScript -->
@@ -1175,7 +1196,10 @@
     ucapan.forEach(item => {
       const div = document.createElement("div");
       div.classList.add("ucapan");
-      div.innerHTML = `<p class="nama">${item.nama}</p><p>${item.mesej}</p>`;
+      div.innerHTML = `
+        <div class="Nama anda">${item.nama}</div>
+        <div class="Ucapan anda">${item.mesej}</div>
+      `;
       divUcapan.appendChild(div);
     });
   </script>
