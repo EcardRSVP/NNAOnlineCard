@@ -1101,7 +1101,50 @@
 
         
 
+    <!-- Page 7 -->
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <title>Senarai Hadiah Kahwin</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h1>Senarai Hadiah & Nombor Tracking</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Nama Pemberi Hadiah</th>
+        <th>No. Tracking</th>
+        <th>Link Tracking</th>
+      </tr>
+    </thead>
+    <tbody id="giftTableBody">
+      <!-- Data akan diisi oleh JavaScript -->
+    </tbody>
+  </table>
 
+  <script src="data.js"></script>
+  <script>
+    const tableBody = document.getElementById("giftTableBody");
+
+    data.forEach(item => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${item.nama}</td>
+        <td>${item.tracking}</td>
+        <td><a href="https://tracking.example.com/${item.tracking}" target="_blank">Track</a></td>
+      `;
+      tableBody.appendChild(row);
+    });
+  </script>
+</body>
+</html>
 
 
 
@@ -1146,6 +1189,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+      
 
 
   
