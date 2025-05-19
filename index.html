@@ -1148,7 +1148,39 @@
 
 
 
+    <!-- Page 8 -->
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <title>Ucapan Tetamu</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h1 { color: #333; }
+    .ucapan { border-bottom: 1px solid #ccc; margin-bottom: 10px; padding-bottom: 10px; }
+    .nama { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Ucapan Tetamu</h1>
 
+  <div id="senarai-ucapan">
+    <!-- Ucapan akan dimasukkan di sini oleh JavaScript -->
+  </div>
+
+  <script src="ucapan.js"></script>
+  <script>
+    const divUcapan = document.getElementById("senarai-ucapan");
+
+    ucapan.forEach(item => {
+      const div = document.createElement("div");
+      div.classList.add("ucapan");
+      div.innerHTML = `<p class="nama">${item.nama}</p><p>${item.mesej}</p>`;
+      divUcapan.appendChild(div);
+    });
+  </script>
+</body>
+</html>
 
 
 
