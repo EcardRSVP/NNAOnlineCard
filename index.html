@@ -70,9 +70,8 @@
     <!-- Page 4 -->
     <section class="page">
       <h2>Ucapan</h2>
-      <input type="text" placeholder="Nama anda" required>
+      <input type="text" placeholder="Ucapan anda" required>
       <label>
-        <textarea placeholder="Ucapan anda" rows="4"></textarea>
         <button type="submit">Hantar</button>
       </form>
     </section>
@@ -1143,64 +1142,6 @@
         <td><a href="https://tracking.example.com/${item.tracking}" target="_blank">Track</a></td>
       `;
       tableBody.appendChild(row);
-    });
-  </script>
-</body>
-</html>
-
-
-
-    <!-- Page 8 -->
-<!DOCTYPE html>
-<html lang="ms">
-<head>
-  <meta charset="UTF-8">
-  <title>Ucapan</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #fefefe;
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-    .ucapan {
-      background-color: #f0f0f0;
-      margin: 10px 0;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .nama {
-      font-weight: bold;
-      color: #005f73;
-    }
-    .mesej {
-      margin-top: 5px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Ucapan</h1>
-
-  <div id="senarai-ucapan">
-    <!-- Ucapan akan dimasukkan di sini oleh JavaScript -->
-  </div>
-
-  <script src="ucapan.js"></script>
-  <script>
-    const divUcapan = document.getElementById("senarai-ucapan");
-
-    ucapan.forEach(item => {
-      const div = document.createElement("div");
-      div.classList.add("ucapan");
-      div.innerHTML = `
-        <div class="Nama anda">${item.nama}</div>
-        <div class="Ucapan anda">${item.mesej}</div>
-      `;
-      divUcapan.appendChild(div);
     });
   </script>
 </body>
