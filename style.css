@@ -64,3 +64,66 @@ footer {
   color: #777;
   margin-top: 40px;
 }
+
+
+
+
+
+
+
+
+/* RESPONSIF CONTAINER */
+.container, .page, section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Imej responsif */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive text */
+h1, h2, p {
+  word-wrap: break-word;
+}
+
+/* Responsive button */
+button {
+  max-width: 100%;
+}
+
+/* RESPONSIF TAMBAHAN UNTUK SKRIN KECIL */
+@media (max-width: 768px) {
+  h1, h2 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  .countdown div {
+    min-width: 60px;
+  }
+
+  .gift-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gift-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+  }
+}
+
