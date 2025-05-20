@@ -79,7 +79,7 @@
 
 
 
-<!-- Page 5 -->
+ <!-- Page 5 -->
    <section class="page">
 <!DOCTYPE html>
 <html lang="ms">
@@ -100,6 +100,73 @@
       min-height: 100vh;
       padding: 20px;
       text-align: center;
+    }
+
+    h1 {
+      color: #c2185b;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .countdown div {
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      min-width: 60px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    .countdown span {
+      font-size: 1.5rem;
+      color: #c2185b;
+      font-weight: bold;
+    }
+
+    .label {
+      font-size: 0.8rem;
+      margin-top: 4px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    @media (min-width: 480px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .countdown div {
+        min-width: 80px;
+      }
+
+      .countdown span {
+        font-size: 2rem;
+      }
+
+      .label {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Menanti Hari Bahagia</h1>
 
   <div class="countdown">
     <div>
@@ -121,7 +188,6 @@
 
       <p>#liyaterciptauntukhaikal</p>
   </div>
-
 
   <script>
     const weddingDate = new Date("2025-12-31T11:00:00").getTime();
