@@ -1007,9 +1007,21 @@
   const startBtn = document.getElementById("start-btn");
   const bgMusic = document.getElementById("bg-music");
 
-  startBtn.addEventListener("click", () => {
-    bgMusic.play().catch(e => console.log("Autoplay blocked."));
-  });
+  function startInvitation() {
+  music.play().catch(e => console.log("Music autoplay blocked"));
+  document.getElementById('main-content').style.display = 'block';
+  const frontPage = document.querySelector('.front-page');
+  if (frontPage) frontPage.remove();
+}
+
+startBtn.addEventListener("click", () => {
+bgMusic.play().catch(e => console.log("Autoplay blocked."));
+}
+
+document.body.addEventListener('touchstart', function once() {
+  music.play().catch(() => {});
+  document.body.removeEventListener('touchstart', once);
+});
 </script>
 
 </body>
