@@ -114,19 +114,12 @@ button {
 
 .gift-item img {
   width: 100%;
-  max-width: 200px;
-  height: 150px;          /* Tetapkan tinggi tetap agar semua gambar sama besar */
+  max-width: 180px;
+  height: 120px;          /* Tetapkan tinggi tetap agar semua gambar sama besar */
   object-fit: cover;      /* Potong imej secara cantik agar muat tanpa herot */
   border-radius: 8px;     /* Opsyenal - sudut lembut */
   display: block;
   margin: 0 auto 10px;
-}
-
-  @media (max-width: 600px) {
-  .gift-item img {
-    max-width: 180px;
-    height: 120px;
-  }
 }
 
   .footer {
