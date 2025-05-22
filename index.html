@@ -879,29 +879,28 @@
     const mainContent = document.getElementById('main-content');
 
     if (currentVisibleSection === id) {
-      // Tekan ikon sama, sembunyi semua section & tunjuk main content
+      // Jika ikon ditekan semula, sembunyikan semua & tunjuk balik main content
       sections.forEach(secId => {
         const sec = document.getElementById(secId);
-        if (sec) sec.classList.remove('active');
+        if (sec) sec.style.display = "none";
       });
 
-      if (mainContent) mainContent.style.display = 'block';
-
+      if (mainContent) mainContent.style.display = "block";
       currentVisibleSection = null;
     } else {
-      // Tekan ikon lain, sembunyi main content & tunjuk section terpilih
+      // Jika ikon lain ditekan, sembunyikan semua, tunjukkan yang dipilih
       sections.forEach(secId => {
         const sec = document.getElementById(secId);
-        if (sec) sec.classList.remove('active');
+        if (sec) sec.style.display = "none";
       });
 
       const selectedSection = document.getElementById(id);
-      if (selectedSection) selectedSection.classList.add('active');
+      if (selectedSection) selectedSection.style.display = "block";
 
-      if (mainContent) mainContent.style.display = 'none';
-
+      if (mainContent) mainContent.style.display = "none";
       currentVisibleSection = id;
     }
+  }
 
   function copyRek() {
     const text = document.getElementById("rek").innerText;
@@ -917,7 +916,7 @@
     const url = "https://docs.google.com/spreadsheets/d/1BEs4b9m2mz2etkpcO5qoU10bFgreWH1Lft1MUI7YXVA/gviz/tq?tqx=out:csv";
     const response = await fetch(url);
     const csvText = await response.text();
-    const lines = csvText.trim().split("\\n").slice(1);
+    const lines = csvText.trim().split("\n").slice(1);
 
     const tbody = document.querySelector("#hadiah-table tbody");
     lines.forEach(line => {
