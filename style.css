@@ -112,10 +112,15 @@ button {
     align-items: flex-start;
   }
 
-  .gift-item img {
-    width: 100%;
-    height: auto;
-  }
+.gift-item img {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;          /* Tetapkan tinggi tetap agar semua gambar sama besar */
+  object-fit: cover;      /* Potong imej secara cantik agar muat tanpa herot */
+  border-radius: 8px;     /* Opsyenal - sudut lembut */
+  display: block;
+  margin: 0 auto 10px;
+}
 
   .footer {
     flex-wrap: wrap;
