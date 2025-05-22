@@ -72,10 +72,9 @@ footer {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 15px;
   box-sizing: border-box;
-}
-
+  
 /* Imej responsif */
 img {
   max-width: 100%;
@@ -178,5 +177,45 @@ button {
   height: 100%;
   background: rgba(0, 0, 0, 0.4); /* Ubah opacity ikut kejelasan teks */
   z-index: -1;
+}
+
+
+
+
+.rsvp-container {
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+
+.rsvp-container input[type="text"],
+.rsvp-container input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+.rsvp-container button {
+  width: 100%;
+  padding: 12px;
+  background: #a00;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
