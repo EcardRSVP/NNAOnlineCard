@@ -65,27 +65,21 @@
   </style>
 </head>
 <body>
-  
-<!-- ✅ Video Latar Belakang -->
-<div class="video-container">
-  <video autoplay muted loop playsinline>
-    <source src="RSVP V21.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
 
-  <!-- ✅ Kandungan Jemputan -->
-  <div class="content-overlay">
+  <!-- Muzik Latar -->
+  <audio id="bg-music" loop>
+    <source src="Hafiz Suip - Kisah Cinta Kita (Lyrics) (1).mp3" type="audio/mpeg"/>
+  </audio>
+
+  <!-- ✅ HALAMAN DEPAN -->
+  <section class="page front-page">
     <h1>WALIMATULURUS</h1>
-    <p>Haikal & Liya</p>
+    <h2>Haikal</h2>
+    <p>&</p>
+    <h2>Liya</h2>
     <button id="start-btn">BUKA</button>
-  </div>
-</div>
+  </section>
 
-<!-- ✅ Muzik Latar -->
-<audio id="bg-music" loop>
-  <source src=""Hafiz Suip - Kisah Cinta Kita (Lyrics) (1).mp3" type="audio/mpeg">
-</audio>
-  
   <!-- ✅ KANDUNGAN UTAMA (DISOROK PADA MULA) -->
   <div id="main-content" style="display: none;">
 
@@ -1003,19 +997,19 @@
   </div>
 
   <!-- ✅ SCRIPT UNTUK KAWAL PAPARAN -->
-<script>
-  const startBtn = document.getElementById("start-btn");
-  const bgMusic = document.getElementById("bg-music");
+ <script>
+const startBtn = document.getElementById('start-btn');
+const music = document.getElementById('bg-music');
 
-  function startInvitation() {
+function startInvitation() {
   music.play().catch(e => console.log("Music autoplay blocked"));
   document.getElementById('main-content').style.display = 'block';
   const frontPage = document.querySelector('.front-page');
   if (frontPage) frontPage.remove();
 }
 
-startBtn.addEventListener("click", () => {
-bgMusic.play().catch(e => console.log("Autoplay blocked."));
+if (startBtn) {
+  startBtn.addEventListener('click', startInvitation);
 }
 
 document.body.addEventListener('touchstart', function once() {
@@ -1023,6 +1017,3 @@ document.body.addEventListener('touchstart', function once() {
   document.body.removeEventListener('touchstart', once);
 });
 </script>
-
-</body>
-</html>
