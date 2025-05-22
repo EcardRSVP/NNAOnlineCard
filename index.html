@@ -1,33 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wedding Invitation</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Walimatulurus Haikal & Liya</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+      body {
+      color: black;
+      background-color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }  
+    .page {
+      padding: 30px 20px;
+      margin-bottom: 30px;
+      border-radius: 0px;
+      box-shadow: none;
+      background-color: transparent;
+      color: black;
+    }
+    .front-page {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #fffafc;
+      text-align: center;
+      color: black;
+    }
+    .front-page button {
+      margin-top: 20px;
+      padding: 10px 25px;
+      background-color: maroon;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    .hidden-section {
+      display: none;
+    }
+    .countdown-box {
+      background: white;
+      border-radius: 8px;
+      padding: 8px;
+      min-width: 50px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .countdown-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #black;
+    }
+    .countdown-label {
+      font-size: 0.7rem;
+      color: black;
+      margin-top: 5px;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Background Music -->
+  <!-- Muzik Latar -->
   <audio id="bg-music" loop>
     <source src="Hafiz Suip - Kisah Cinta Kita (Lyrics) (1).mp3" type="audio/mpeg"/>
   </audio>
 
-  <div class="flipbook">
+  <!-- ✅ HALAMAN DEPAN -->
+  <section class="page front-page">
+    <h1>WALIMATULURUS</h1>
+    <h2>Haikal</h2>
+    <p>&</p>
+    <h2>Liya</h2>
+    <button id="start-btn">BUKA</button>
+  </section>
 
-    <!-- Front Page -->
-    <section class="page front-page">
-      <h1>WALIMATULURUS</h1>
-      <h2>Haikal</h2>
-      <p>&<p>
-      <h2>Liya</h2>
-      <button id="start-btn">Buka</button>
-    </section>
+  <!-- ✅ KANDUNGAN UTAMA (DISOROK PADA MULA) -->
+  <div id="main-content" style="display: none;">
 
-
-
-
-    <!-- Page 2 -->
+ <!-- Gabungan Page 2–4 -->
     <section class="page">
       <h2>السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</h2>
       <p>Dengan penuh kesyukuran ke hadrat ilahi, kami</p>
@@ -39,13 +95,9 @@
       <p><strong>Muhammad Haikal Bin Zulkefli</strong>
       <p>dengan pilihan hatinya</p>
        <p><strong>Nurul Ilyana Binti Ilyas</strong>
-    </section>
-    
 
-
+      <hr>   
     
-    <!-- Page 3 -->
-<section class="page">
       <p><strong>PADA</strong><br>
         Rabu, 31 Disember 2025<br>
         Bersamaan 10 Rejab 1447H
@@ -61,379 +113,180 @@
       <strong>Jamuan Makan:</strong>11.00 am - 5.00 pm<br>
       <strong>Ketibaan Pengantin:</strong>
        1.00 pm</p>
+
+      <hr> 
+
+<section id="countdown-page" class="transparent-section">
+    <h1>Menanti Hari Bahagia</h1>
+
+    <div class="countdown" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+      <div class="countdown-box">
+        <div class="countdown-number" id="days">0</div>
+        <div class="countdown-label">Hari</div>
+      </div>
+      <div class="countdown-box">
+        <div class="countdown-number" id="hours">0</div>
+        <div class="countdown-label">Jam</div>
+      </div>
+      <div class="countdown-box">
+        <div class="countdown-number" id="minutes">0</div>
+        <div class="countdown-label">Minit</div>
+      </div>
+      <div class="countdown-box">
+        <div class="countdown-number" id="seconds">0</div>
+        <div class="countdown-label">Saat</div>
+      </div>
     </div>
-    </section>
+
+    <script>
+      const weddingDate = new Date("2025-12-31T10:00:00").getTime();
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance < 0) {
+          ["days", "hours", "minutes", "seconds"].forEach(id => {
+            document.getElementById(id).textContent = "0";
+          });
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("seconds").textContent = seconds;
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    </script>
+</section>
+      
+     <hr> 
+
+    <section class="doa transparent-section">
+    <p>
+      بِسْمِ اللهِ الرَّحْمنِ الرَّحِيمِ<br>
+      Ya Allah Ya Tuhan kami,<br>
+      Kami memohon kepada-Mu berkatilah perkahwinan ini.<br>
+      Limpahkanlah rahmat dan baraqah kepada kedua pasangan ini,<br>
+      Kurniakanlah mereka zuriat yang soleh dan solehah,<br>
+      Sempurnakan agama mereka dengan berkat ikatan ini dan semoga jodoh pernikahan ini akan berkekalan hingga ke jannah.
+    </p>
+    <p><strong>Amin Ya Rabbal Alamin</strong></p>
+  
+<div class="footer-credit" style="margin-top: 40px; text-align: center;">
+  <p>#liyaterciptauntukhaikal</p>
+  <p>Created by KadDigitalNNA</p>
+</div>
+</section>
+</section>
+
+    <!-- removed misplaced footer-credit -->
+      
+
+  </div>
 
 
-
-   
-    <!-- Page 4 -->
-    <section class="page">
-      <h2>Ucapan</h2>
-      <input type="text" placeholder="Ucapan anda" required>
-      <label>
-        <button type="submit">Hantar</button>
-      </form>
-    </section>
-
-
-
-
- <!-- Page 5 -->
-   <section class="page">
+    <!-- Page 5 -->
 <!DOCTYPE html>
 <html lang="ms">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Menanti Hari Bahagia</title>
+  <title>Jemputan Kahwin</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #fffafc;
-      color: #333;
-      display: flex;
-      flex-direction: column;
+    .hidden-section { display: none; }
+    .phone-button {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
-      text-align: center;
-    }
-
-    h1 {
-      color: #c2185b;
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1rem;
-      margin-bottom: 20px;
-    }
-
-    .countdown {
-      display: flex;
-      justify-content: center;
       gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .countdown div {
-      background: white;
-      padding: 15px;
-      border-radius: 12px;
-      min-width: 60px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    }
-
-    .countdown span {
-      font-size: 1.5rem;
-      color: #c2185b;
-      font-weight: bold;
-    }
-
-    .label {
-      font-size: 0.8rem;
-      margin-top: 4px;
-    }
-
-    .footer {
-      margin-top: 30px;
-      font-size: 0.85rem;
-      color: #888;
-    }
-
-    @media (min-width: 480px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-
-      .countdown div {
-        min-width: 80px;
-      }
-
-      .countdown span {
-        font-size: 2rem;
-      }
-
-      .label {
-        font-size: 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <h1>Menanti Hari Bahagia</h1>
-
-  <div class="countdown">
-    <div>
-      <span id="days">0</span>
-      <div class="label">Hari</div>
-    </div>
-    <div>
-      <span id="hours">0</span>
-      <div class="label">Jam</div>
-    </div>
-    <div>
-      <span id="minutes">0</span>
-      <div class="label">Minit</div>
-    </div>
-    <div>
-      <span id="seconds">0</span>
-      <div class="label">Saat</div>
-    </div>
-
-      <p>#liyaterciptauntukhaikal</p>
-  </div>
-
-  <script>
-    const weddingDate = new Date("2025-12-31T11:00:00").getTime();
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
-
-      if (distance < 0) {
-        document.querySelector(".countdown").innerHTML = "Majlis telah berlangsung!";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours;
-      document.getElementById("minutes").textContent = minutes;
-      document.getElementById("seconds").textContent = seconds;
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
-
-</body>
-</html>
-  </section>
-
-
-
-  
-    <!-- Page 6 -->
-<!DOCTYPE html>
-<html lang="ms">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Footer Scroll Section</title>
-  <style>
-    body {
-      margin: 0;
-      padding-bottom: 80px;
-      font-family: sans-serif;
-      scroll-behavior: smooth; /* smooth scroll effect */
-    }
-
-    section {
-      padding: 60px 20px;
-      border-bottom: 1px solid #ccc;
-      min-height: 300px;
-    }
-
-    .footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 60px;
-      background-color: #ffffff;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
-      border-top: 1px solid #ddd;
-      z-index: 1000;
-    }
-
-    .footer-icon {
-      text-align: center;
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    .footer-icon span {
-      display: block;
-      font-size: 11px;
-    }
-
-    /* Warna ikon */
-    .rsvp { color: #e91e63; }
-    .money { color: #4caf50; }
-    .contact { color: #ff9800; }
-    .wishlist { color: #9c27b0; }
-    .location { color: #03a9f4; }
-    .calendar { color: #607d8b; }
-  </style>
-</head>
-<body>
-
-  <!-- Seksyen-seksyen -->
-    <section id="Seksyen RSVP" class="active">
-    <h2>💌 RSVP</h2>
-      <form>
-        <input type="text" placeholder="Nama Anda" required>
-            <label>
-      <input type="radio" name="attendance" value="Hadir" required>
-      Hadir
-    </label>
-    <label>
-      <input type="radio" name="attendance" value="Tidak Hadir">
-      Tidak Hadir
-    </label><br><br>
-        <label for="jumlah">Bilangan Kehadiran</label><br>
-  <input type="number" id="jumlah" name="jumlah" min="1"><br><br>
-
-        <button type="submit">Hantar</button>
-      </form>
-    </section>
-
-
-
-
-  <section id="Seksyen Money Gift">
-    <h2>💸 Money Gift</h2>
-     <p><strong>Nama Bank :</strong> Maybank Berhad</p>
-     <p><strong>Nama :</strong> Muhammad Haikal Bin Zulkefli</p>
-     <p><strong>Nombor Akaun:</strong> <span id="rek">1234567890</span></p>
-      <button onclick="copyRek()">Copy</button>
-        <p>Imbas kod QR</p>
-        <img src="Contoh QR.jpg" alt="Kod QR">
-
-          <script>
-    function copyRek() {
-      const text = document.getElementById("rek").innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Nombor akaun bank telah disalin");
-      });
-    }
-  </script>
-</body>
-</html>
-      </div>
-    </section>
-
-
-
-  
-  <section id="Seksyen Wishlist">
-    <h2>🎁 Wishlist</h2>
-<div style="text-align: center;">
- 
-
-  <p><strong>Nama Penerima</strong>
-  <div style="background-color: #f8f9fa; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
-    <span id="nama">Muhammad Haikal Bin Zulkefli</span>
-    <button onclick="copyText('nama')" style="margin-left:10px;">Copy</button>
-  </div>
-
-  <p><strong>Alamat Penghantaran</strong>
-  <div style="background-color: #f8f9fa; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
-    <span id="alamat">
-     No xx, Jalan xx, Taman xx, 35900 Tanjong Malim, Perak
-    </span>
-    <button onclick="copyText('alamat')" style="margin-left:10px;">Copy</button>
-  </div>
-
-  <p><strong>Nombor Telefon</strong>
-  <div style="background-color: #f8f9fa; padding: 10px; border-radius: 8px;">
-    <span id="telefon">0134567890</span>
-    <button onclick="copyText('telefon')" style="margin-left:10px;">Copy</button>
-  </div>
-</div>
-
-<script>
-  function copyText(id) {
-    const text = document.getElementById(id).innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      alert("Disalin: " + text);
-    });
-  }
-</script>
-    <br><br><br>
-
-
-
-    
-<!DOCTYPE html>
-<html lang="ms">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wishlist Hadiah Kahwin</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f8f9fa;
-      padding: 20px;
-    }
-    .gift-item {
-      background: #ffffff;
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-    }
-    .gift-item img {
-      width: 80px;
-      height: auto;
-      margin-right: 15px;
-      border-radius: 5px;
-    }
-    .gift-info {
-      flex: 1;
-    }
-    .gift-title {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-    .btn {
-      padding: 6px 12px;
-      border: none;
-      border-radius: 6px;
-      margin-right: 5px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-    .btn-tempah {
-      background-color: #007bff;
+      margin: 10px;
+      padding: 12px 24px;
+      font-size: 16px;
       color: white;
-    }
-    .btn-telah {
       background-color: #28a745;
-      color: white;
-      cursor: default;
-    }
-    .btn-link {
-      background-color: #6c757d;
-      color: white;
+      border: none;
+      border-radius: 12px;
       text-decoration: none;
     }
   </style>
+
+  <style>
+    .page {
+      padding: 30px 20px;
+      margin-bottom: 30px;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      box-sizing: border-box;
+      background-color: #ffffff;
+    }
+  </style>
+
 </head>
 <body>
 
- <div class="gift-item">
-    <img src="Microwave Oven.jpg" alt="Microwave Oven">
+<!-- ✅ Seksyen RSVP -->
+<section id="Seksyen RSVP" class="page hidden-section">
+  <h2>💌 RSVP</h2>
+  <form action="https://docs.google.com/forms/d/e/1FAIpQLSc9IzXMjZMt3t2Cw3oAe7X0rxRXWlFwxaOa4T6YK_rCCq2LQA/formResponse" method="POST" target="_blank">
+
+    <!-- Nama -->
+    <label for="nama">Nama</label>
+    <input type="text" id="nama" name="entry.1043756814" placeholder="Nama Anda" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+
+    <!-- Kehadiran -->
+    <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 15px;">
+      <label>
+        <input type="radio" name="entry.727555102" value="Hadir" required> Hadir
+      </label>
+      <label>
+        <input type="radio" name="entry.727555102" value="Tidak Hadir"> Tidak Hadir
+      </label>
+    </div>
+
+    <!-- Bilangan Kehadiran -->
+    <label for="bilangan">Bilangan Kehadiran</label>
+    <input type="number" id="bilangan" name="entry.1537909291" min="1" placeholder="Contoh: 2" style="width: 100%; padding: 10px; margin-bottom: 20px;">
+
+    <!-- Butang Hantar -->
+    <button type="submit" style="width: 100%; padding: 10px; background-color: maroon; color: white; border: none; border-radius: 5px; font-size: 16px;">
+      Hantar
+    </button>
+  </form>
+</section>
+
+
+
+
+  
+<!-- ✅ Seksyen Money Gift -->
+<section id="Seksyen Money Gift" class="hidden-section">
+  <h2>💵 Money Gift</h2>
+  <p><strong>Nama Bank :</strong> Maybank Berhad</p>
+  <p><strong>Nama :</strong> Muhammad Haikal Bin Zulkefli</p>
+  <p><strong>Nombor Akaun:</strong> <span id="rek">1234567890</span></p>
+  <button onclick="copyRek()">Copy</button>
+  <p>Imbas kod QR</p>
+  <img src="Contoh QR.jpg" alt="Kod QR" /><br><br><br><br><br><br>
+</section>
+
+<!-- ✅ Seksyen Wishlist (Ringkasan) -->
+<section id="Seksyen Wishlist" class="hidden-section">
+  <h2>🎁 Wishlist</h2>
+  
+  <div class="gift-item">
+    <img src="Microwave Oven.jpg" alt="Microwave Oven" style="width:80px;">
     <div class="gift-info">
       <div class="gift-title">Microwave Oven</div>
-      <a href="https://s.shopee.com.my/Vu5yuSFl9" class="btn btn-link" target="_blank">🔗 Link Shopee</a>
-      <button class="btn btn-tempah" onclick="tempah(this)">Tempah</button>
+      <a href="https://s.shopee.com.my/Vu5yuSFl9" target="_blank">🔗 Shopee</a>
+      <button onclick="tempah(this)">Tempah</button>
     </div>
   </div>
 
@@ -923,140 +776,166 @@
     </div>
   </div>
 
+   <div class="gift-item">
+    <img src="Drawer Baju.jpeg" alt="Drawer Baju">
+    <div class="gift-info">
+      <div class="gift-title">Drawer Baju</div>
+      <a href="https://s.shopee.com.my/AUhSQ6rF4B" class="btn btn-link" target="_blank">🔗 Link Shopee</a>
+      <button class="btn btn-tempah" onclick="tempah(this)">Tempah</button>
+    </div>
+  </div>
 
-  <script>
-    function tempah(button) {
-      button.innerText = '✔ Telah Ditempah';
-      button.classList.remove('btn-tempah');
-      button.classList.add('btn-telah');
-      button.disabled = true;
-    }
-  </script>
+<div class="gift-item">
+    <img src="Set Meja Makan.jpeg" alt="Set Meja Makan">
+    <div class="gift-info">
+      <div class="gift-title">Set Meja Makan</div>
+      <a href="https://s.shopee.com.my/10qSTxCtle" class="btn btn-link" target="_blank">🔗 Link Shopee</a>
+      <button class="btn btn-tempah" onclick="tempah(this)">Tempah</button>
+    </div>
+  </div>
 
-</body>
-</html>
+<div class="gift-item">
+    <img src="WhatsApp Image 2025-05-17 at 11.20.19 PM.jpeg" alt="Custom Fridge Magnet">
+    <div class="gift-info">
+      <div class="gift-title">Custom Fridge Magnet</div>
+      <a href="https://s.shopee.com.my/3LEHZPEw8k" class="btn btn-link" target="_blank">🔗 Link Shopee</a>
+      <button class="btn btn-tempah" onclick="tempah(this)">Tempah</button>
+    </div>
+  </div>
 
+  <div class="gift-item">
+    <img src="Papan Pemotong Custom.jpg" alt="Papan Pemotong Custom">
+    <div class="gift-info">
+      <div class="gift-title">Papan Pemotong Custom</div>
+      <a href="https://s.shopee.com.my/5KzLvifB33" class="btn btn-link" target="_blank">🔗 Link Shopee</a>
+      <button class="btn btn-tempah" onclick="tempah(this)">Tempah</button>
+    </div>
+  </div>
 
+  <div class="gift-item">
+    <img src="Bakul Baju.jpg" alt="Bakul Baju">
+    <div class="gift-info">
+      <div class="gift-title">Bakul Baju</div>
+      <a href="https://shopee.com.my/%F0%9F%94%B7ATAS%F0%9F%94%B7-45L-60L-Japanese-Style-Dirty-Clothes-Basket-Laundry-Basket-Bakul-Baju-Kotor-Raga-Kain-Laundry-Basket-With-Cover-i.340359644.22379759209?sp_atk=271a57c3-131c-4c95-8bb9-facd110c33e0&xptdk=271a57c3-131c-4c95-8bb9-facd110c33e0" class="btn btn-link" target="_blank">🔗 Link Shopee</a>
+      <button class="btn btn-tempah" onclick="tempah(this)">Tempah</button>
+    </div>
+  </div>   
 
-
-   <section id="Seksyen Contact">
-    <h2>📞 Contact</h2>
-    <p>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>RSVP</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    .phone-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin: 10px;
-      padding: 12px 24px;
-      font-size: 16px;
-      color: white;
-      background-color: #28a745;
-      border: none;
-      border-radius: 12px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .phone-button:hover {
-      background-color: #218838;
-    }
-
-    .phone-icon {
-      font-size: 18px;
-    }
-  </style>
-</head>
-<body>
-
-
-    <!-- Tombol Telefon 1 -->
-  <a href="tel:+601157265723" class="phone-button">
-    <i class="fas fa-phone phone-icon"></i>
-    Fazilah (Ibu)
-  </a>
-
-   <!-- Tombol Telefon 2 -->
-  <a href="tel:+601157265723" class="phone-button">
-    <i class="fas fa-phone phone-icon"></i>
-    Zulkefli (Ayah)
-  </a>
-
-</body>
-</html>
-    </section>
-
-
-
-
-  <section id="Seksyen Location" style="text-align:center; padding: 40px 20px;">
-  <h2>📍 Location</h2>
-   <p>
-    Dewan Bandar Behrang 2020<br>
-    Bandar Behrang 2020<br>
-    35900 Tanjong Malim, Perak
+      <!-- 📦 Pemberian Hadiah & No. Tracking -->
+  <h3>📦 Pemberian Hadiah & No. Tracking</h3>
+  <p style="text-align:center;">
+    👇 <a href="https://forms.gle/H4gnfoLTTUULh2XT7" target="_blank">Klik sini untuk isi maklumat pemberian hadiah</a>
   </p>
 
-  <div style="margin-top: 20px;">
-    <a href="hhttps://maps.app.goo.gl/KYZcM4NcTKrCdBi78?g_st=awr" 
-       target="_blank" 
-       style="display: inline-block; background-color: #34a853; color: white; padding: 12px 20px; margin: 10px; border-radius: 8px; text-decoration: none;">
-      Google Maps
-    </a>
-
-    <a href="https://waze.com/ul/hw28jjnfyr" 
-       target="_blank" 
-       style="display: inline-block; background-color: #05c3de; color: white; padding: 12px 20px; margin: 10px; border-radius: 8px; text-decoration: none;">
-      Waze
-    </a>
-  </div>
+  <table id="hadiah-table">
+    <thead>
+      <tr>
+        <th>Nama Pemberi Hadiah</th>
+        <th>No. Tracking</th>
+        <th>Link Tracking</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table><br><br><br><br><br><br>
 </section>
 
-    
+<!-- ✅ Seksyen Contact -->
+<section id="Seksyen Contact" class="hidden-section">
+  <h2>📞 Contact</h2>
+  <a href="tel:+601157265723" class="phone-button">📞 Fazilah (Ibu)</a>
+  <a href="tel:+601157265723" class="phone-button">📞 Zulkefli (Ayah)</a><br><br><br><br>
+</section>
 
-  
-  <!-- Footer Sticky -->
-  <div class="footer">
-    <div class="footer-icon rsvp" onclick="toggleSection('Seksyen RSVP')">
-      💌 <span>RSVP</span>
-    </div>
-    <div class="footer-icon money" onclick="toggleSection('Seksyen Money Gift')">
-      💸 <span>Money Gift</span>
-    </div>
-    <div class="footer-icon wishlist" onclick="toggleSection('Seksyen Wishlist')">
-      🎁 <span>Wishlist</span>
-    </div>
-    <div class="footer-icon contact" onclick="toggleSection('Seksyen Contact')">
-      📞 <span>Contact</span>
-    </div>
-    <div class="footer-icon location" onclick="toggleSection('Seksyen Location')">
-      📍 <span>Location</span>
-    </div>
-  </div>
+<!-- ✅ Seksyen Location -->
+<section id="Seksyen Location" class="hidden-section">
+  <h2>📍 Location</h2>
+  <p>Dewan Bandar Behrang 2020<br>Bandar Behrang 2020<br>35900 Tanjong Malim, Perak</p>
+  <a href="https://maps.app.goo.gl/KYZcM4NcTKrCdBi78" target="_blank">Google Maps</a><br><br>
+  <a href="https://waze.com/ul/hw28jjnfyr" target="_blank">Waze</a><br><br><br><br><br>
+</section>
 
-  <!-- JavaScript Scroll Function -->
-  <script>
-    function toggleSection(id) {
-      const section = document.getElementById(id);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      }
+<!-- ✅ Sticky Footer Menu -->
+<div class="footer">
+  <div class="footer-icon rsvp" onclick="toggleSection('Seksyen RSVP')">💌<span>RSVP</span></div>
+  <div class="footer-icon money" onclick="toggleSection('Seksyen Money Gift')">💵<span>Money Gift</span></div>
+  <div class="footer-icon wishlist" onclick="toggleSection('Seksyen Wishlist')">🎁<span>Wishlist</span></div>
+  <div class="footer-icon contact" onclick="toggleSection('Seksyen Contact')">📞<span>Contact</span></div>
+  <div class="footer-icon location" onclick="toggleSection('Seksyen Location')">📍<span>Location</span></div>
+</div>
+
+<!-- ✅ JavaScript -->
+<script>
+  let currentVisibleSection = null;
+
+  function toggleSection(id) {
+    const ids = ['Seksyen RSVP', 'Seksyen Money Gift', 'Seksyen Wishlist', 'Seksyen Contact', 'Seksyen Location'];
+
+    // Jika seksyen yang ditekan adalah yang sedang aktif → sembunyikan semua
+    if (currentVisibleSection === id) {
+      ids.forEach(secId => {
+        const sec = document.getElementById(secId);
+        if (sec) sec.classList.add('hidden-section');
+      });
+      currentVisibleSection = null;
+      return;
     }
-  </script>
 
-</body>
-</html>
+    // Sembunyikan semua dahulu
+    ids.forEach(secId => {
+      const sec = document.getElementById(secId);
+      if (sec) sec.classList.add('hidden-section');
+    });
+
+    // Tunjukkan seksyen yang diminta
+    const selected = document.getElementById(id);
+    if (selected) {
+      selected.classList.remove('hidden-section');
+      selected.scrollIntoView({ behavior: "smooth" });
+    }
+
+    currentVisibleSection = id;
+  }
+
+  function copyRek() {
+    const text = document.getElementById("rek").innerText;
+    navigator.clipboard.writeText(text).then(() => alert("Nombor akaun disalin"));
+  }
+
+  function tempah(button) {
+    button.innerText = '✔ Telah Ditempah';
+    button.disabled = true;
+  }
+
+  async function fetchCSVData() {
+    const url = "https://docs.google.com/spreadsheets/d/1BEs4b9m2mz2etkpcO5qoU10bFgreWH1Lft1MUI7YXVA/gviz/tq?tqx=out:csv";
+    const response = await fetch(url);
+    const csvText = await response.text();
+    const lines = csvText.trim().split("\\n").slice(1);
+
+    const tbody = document.querySelector("#hadiah-table tbody");
+    lines.forEach(line => {
+      const cols = line.split(",");
+      const nama = cols[0]?.replaceAll('"', '') || '';
+      const tracking = cols[1]?.replaceAll('"', '') || '';
+      const link = tracking ? `<a href="https://easyparcel.com/my/en/track/?tracking_number=${tracking}" target="_blank">Track</a>` : '-';
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${nama}</td>
+        <td>${tracking}</td>
+        <td>${link}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  fetchCSVData();
+</script>
 
 
 
-    
- <!-- Page 7 -->
+
+ <!-- Page 6 -->
       <!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -1094,125 +973,41 @@
       color: #0066cc;
     }
   </style>
+
+  <style>
+    .page {
+      padding: 30px 20px;
+      margin-bottom: 30px;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      box-sizing: border-box;
+      background-color: #ffffff;
+    }
+  </style>
+
 </head>
-<body>
+<body>      
 
-  <h1>Pemberian Hadiah & No. Tracking</h1>
-
-  <p style="text-align:center;">
-    👇 <a href="https://forms.gle/H4gnfoLTTUULh2XT7" target="_blank">Klik sini untuk isi maklumat pemberian hadiah</a>
-  </p>
-
-  <table id="hadiah-table">
-    <thead>
-      <tr>
-        <th>Nama Pemberi Hadiah</th>
-        <th>No. Tracking</th>
-        <th>Link Tracking</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <script>
-    async function fetchCSVData() {
-      const url = "https://docs.google.com/spreadsheets/d/1BEs4b9m2mz2etkpcO5qoU10bFgreWH1Lft1MUI7YXVA/gviz/tq?tqx=out:csv";
-      const response = await fetch(url);
-      const csvText = await response.text();
-      const lines = csvText.trim().split("\n").slice(1); // Skip header row
-
-      const tbody = document.querySelector("#hadiah-table tbody");
-
-      lines.forEach(line => {
-        const cols = line.split(",");
-        const nama = cols[0]?.replaceAll('"', '') || '';
-        const tracking = cols[1]?.replaceAll('"', '') || '';
-        const link = tracking ? `<a href="https://easyparcel.com/my/en/track/?tracking_number=${tracking}" target="_blank">Track</a>` : '-';
-
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td>${nama}</td>
-          <td>${tracking}</td>
-          <td>${link}</td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-
-    fetchCSVData();
-  </script>
-
-</body>
-</html>
-  </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-
-  
   </div>
- 
-  <script>
-    const startBtn = document.getElementById('start-btn');
-    const music = document.getElementById('bg-music');
 
-    function startInvitation() {
-      // Play music
-      music.play().catch(e => console.log("Music autoplay blocked"));
+  <!-- ✅ SCRIPT UNTUK KAWAL PAPARAN -->
+ <script>
+const startBtn = document.getElementById('start-btn');
+const music = document.getElementById('bg-music');
 
-      // Auto scroll to next page
-      window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
-    }
+function startInvitation() {
+  music.play().catch(e => console.log("Music autoplay blocked"));
+  document.getElementById('main-content').style.display = 'block';
+  const frontPage = document.querySelector('.front-page');
+  if (frontPage) frontPage.remove();
+}
 
-    // Button click to start invitation
-    startBtn.addEventListener('click', startInvitation);
+if (startBtn) {
+  startBtn.addEventListener('click', startInvitation);
+}
 
-    // Touch anywhere to start music (for mobile autoplay policy)
-    document.body.addEventListener('touchstart', function once() {
-      music.play().catch(() => {});
-      document.body.removeEventListener('touchstart', once);
-    });
-  </script>
-
-</body>
-</html>
+document.body.addEventListener('touchstart', function once() {
+  music.play().catch(() => {});
+  document.body.removeEventListener('touchstart', once);
+});
+</script>
