@@ -257,3 +257,15 @@ form button[type="submit"] {
   height: auto;
   border-radius: 8px; /* opsyenal: untuk tepi lembut */
 }
+
+section, .page, .hidden-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* PUSAT SECARA MENEGAK */
+  align-items: center;      /* PUSAT SECARA MELINTANG */
+  text-align: center;
+  min-height: 100vh;
+  padding: 30px 20px 120px 20px;
+  box-sizing: border-box;
+}
+
