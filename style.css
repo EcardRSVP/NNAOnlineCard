@@ -248,3 +248,12 @@ form button[type="submit"] {
   width: 24px;
   height: 24px;
 }
+
+.qr-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 250px;
+  width: 80%;
+  height: auto;
+  border-radius: 8px; /* opsyenal: untuk tepi lembut */
+}
