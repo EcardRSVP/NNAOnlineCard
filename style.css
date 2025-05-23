@@ -261,11 +261,7 @@ form button[type="submit"] {
 section.page,
 section.hidden-section {
   display: flex;
-  flex-direction: column;
   justify-content: center;   /* Pusat secara menegak */
   align-items: center;       /* Pusat secara melintang */
-  text-align: center;
-  min-height: 100vh;
-  box-sizing: border-box;
 }
 
