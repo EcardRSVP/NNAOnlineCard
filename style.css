@@ -257,11 +257,3 @@ form button[type="submit"] {
   height: auto;
   border-radius: 8px; /* opsyenal: untuk tepi lembut */
 }
-
-section.page,
-section.hidden-section {
-  display: flex;
-  justify-content: center;   /* Pusat secara menegak */
-  align-items: center;       /* Pusat secara melintang */
-}
-
