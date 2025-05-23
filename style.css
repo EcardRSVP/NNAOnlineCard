@@ -232,7 +232,7 @@ form button[type="submit"] {
   padding: 12px 24px;
   font-size: 16px;
   color: white;
-  background-color: #007bff; /* Biru */
+  background-color: #28a745;
   border: none;
   border-radius: 12px;
   text-decoration: none;
@@ -241,6 +241,10 @@ form button[type="submit"] {
 }
 
 .location-button:hover {
-  background-color: #0056b3; /* Biru lebih gelap semasa hover */
+  background-color: #218838;
 }
     
+.location-button img {
+  width: 24px;
+  height: 24px;
+}
