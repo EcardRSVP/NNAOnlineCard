@@ -27,13 +27,19 @@ html {
 }
 
 section {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: transparent !important;
   margin: 30px auto;
   padding: 30px 20px 120px 20px;
   max-width: 700px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: none !important;
   scroll-margin-bottom: 100px;
+}
+
+.transparent-section {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding: 30px 20px; /* jika perlu */
 }
 
 .hero h1 {
