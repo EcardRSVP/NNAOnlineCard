@@ -258,14 +258,14 @@ form button[type="submit"] {
   border-radius: 8px; /* opsyenal: untuk tepi lembut */
 }
 
-section, .page, .hidden-section {
+section.page,
+section.hidden-section {
   display: flex;
   flex-direction: column;
-  justify-content: center;  /* PUSAT SECARA MENEGAK */
-  align-items: center;      /* PUSAT SECARA MELINTANG */
+  justify-content: center;   /* Pusat secara menegak */
+  align-items: center;       /* Pusat secara melintang */
   text-align: center;
   min-height: 100vh;
-  padding: 30px 20px 120px 20px;
   box-sizing: border-box;
 }
 
