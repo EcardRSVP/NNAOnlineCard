@@ -216,18 +216,28 @@ form button[type="submit"] {
 
 
 
-.phone-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin: 10px auto;
-  padding: 12px 24px;
-  font-size: 16px;
-  color: white;
-  background-color: #28a745;
-  border: none;
-  border-radius: 12px;
-  text-decoration: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+
+    .hidden-section { display: none; }
+    .phone-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px;
+      padding: 12px 24px;
+      font-size: 16px;
+      color: white;
+      background-color: #28a745;
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+    }
+
+    .page {
+      padding: 30px 20px;
+      margin-bottom: 30px;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      box-sizing: border-box;
+      background-color: #ffffff;
+    }
 
