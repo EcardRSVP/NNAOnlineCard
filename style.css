@@ -257,3 +257,18 @@ form button[type="submit"] {
   height: auto;
   border-radius: 8px; /* opsyenal: untuk tepi lembut */
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Delius&display=swap');
+
+.font-a {
+  font-family: 'Delius', cursive;
+  font-size: 36px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.font-b {
+  font-family: 'Allura', cursive;
+  font-size: 32px;
+  color: black;
+  margin: 5px 0;
