@@ -72,9 +72,10 @@ footer {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 15px;
+  padding: 20px;
   box-sizing: border-box;
-  
+}
+
 /* Imej responsif */
 img {
   max-width: 100%;
@@ -157,24 +158,4 @@ button {
   background-color: transparent !important;
   box-shadow: none !important;
   padding-bottom: 20px !important;
-}
-
-#bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
-
-.video-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Ubah opacity ikut kejelasan teks */
-  z-index: -1;
 }
