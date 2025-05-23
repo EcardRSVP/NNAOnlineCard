@@ -203,3 +203,23 @@ h1, h2, p {
   font-size: 16px;
 }
 
+/* ✅ RSVP Form Styling */
+form input[type="text"],
+form input[type="number"],
+form button[type="submit"] {
+  width: 90%;
+  max-width: 400px;
+  padding: 12px;
+  margin: 10px auto;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+form button[type="submit"] {
+  background-color: maroon;
+  color: white;
+  border: none;
+}
+
