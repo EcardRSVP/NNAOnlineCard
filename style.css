@@ -216,18 +216,18 @@ form button[type="submit"] {
 
 
 
-  phone-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin: 10px;
-      padding: 12px 24px;
-      font-size: 16px;
-      color: white;
-      background-color: #28a745;
-      border: none;
-      border-radius: 12px;
-      text-decoration: none;
-    }
-
+.phone-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px auto;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: white;
+  background-color: #28a745;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
 
