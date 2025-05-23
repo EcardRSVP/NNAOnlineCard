@@ -66,10 +66,19 @@
 </head>
 <body>
 
-  <!-- Muzik Latar -->
+  
+ <!-- Video Latar Belakang -->
+  <video autoplay muted loop id="bg-video">
+    <source src="RSVP 21.mp4" type="video/mp4" />
+  </video>
+
+  
+  <!-- Audio (disembunyikan) -->
   <audio id="bg-music" loop>
-    <source src="Hafiz Suip - Kisah Cinta Kita (Lyrics) (1).mp3" type="audio/mpeg"/>
+    <source src="Hafiz Suip - Kisah Cinta Kita (Lyrics) (1).mp" type="audio/mpeg" />
   </audio>
+
+  
 
   <!-- ✅ HALAMAN DEPAN -->
   <section class="page front-page">
@@ -940,80 +949,29 @@
 
 
 
-
- <!-- Page 6 -->
-      <!DOCTYPE html>
-<html lang="ms">
-<head>
-  <meta charset="UTF-8">
-  <title>Senarai Hadiah & Tracking</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f9f9f9;
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 30px;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 12px;
-    }
-    th {
-      background-color: #f0f0f0;
-    }
-    tr:nth-child(even) {
-      background-color: #fcfcfc;
-    }
-    tr:hover {
-      background-color: #f1f1f1;
-    }
-    a {
-      color: #0066cc;
-    }
-  </style>
-
-  <style>
-    .page {
-      padding: 30px 20px;
-      margin-bottom: 30px;
-      border-radius: 15px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      box-sizing: border-box;
-      background-color: #ffffff;
-    }
-  </style>
-
-</head>
-<body>      
-
-  </div>
-
+      
   <!-- ✅ SCRIPT UNTUK KAWAL PAPARAN -->
  <script>
-const startBtn = document.getElementById('start-btn');
-const music = document.getElementById('bg-music');
+ const startBtn = document.getElementById('start-btn');
+    const music = document.getElementById('bg-music');
 
-function startInvitation() {
-  music.play().catch(e => console.log("Music autoplay blocked"));
-  document.getElementById('main-content').style.display = 'block';
-  const frontPage = document.querySelector('.front-page');
-  if (frontPage) frontPage.remove();
-}
+    function startInvitation() {
+      music.play().catch(e => console.log("Music autoplay blocked"));
+      document.getElementById('main-content').style.display = 'block';
+      const frontPage = document.querySelector('.front-page');
+      if (frontPage) frontPage.remove();
+    }
 
-if (startBtn) {
-  startBtn.addEventListener('click', startInvitation);
-}
+    if (startBtn) {
+      startBtn.addEventListener('click', startInvitation);
+    }
 
-document.body.addEventListener('touchstart', function once() {
-  music.play().catch(() => {});
-  document.body.removeEventListener('touchstart', once);
-});
-</script>
+    // Untuk autoplay di mobile
+    document.body.addEventListener('touchstart', function once() {
+      music.play().catch(() => {});
+      document.body.removeEventListener('touchstart', once);
+    });
+  </script>
+
+</body>
+</html>
