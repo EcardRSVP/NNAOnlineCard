@@ -206,6 +206,7 @@ form button[type="submit"] {
 }
 
     .phone-button {
+      font-family: 'Ancizar Sans', sans-serif;
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -224,6 +225,7 @@ form button[type="submit"] {
 }
 
 .location-button {
+  font-family: 'Ancizar Sans', sans-serif;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -271,7 +273,7 @@ form button[type="submit"] {
 
 .font-c {
   font-family: 'Great Vibes', cursive;
-  font-size: 2.0rem;
+  font-size: 2.5rem;
 }
 
 .font-d {
@@ -281,7 +283,7 @@ form button[type="submit"] {
 
 .font-e {
   font-family: 'Noto Serif Dives Akuru', serif;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
 
 /* Paksa font Ancizar Sans untuk semua teks biasa */
