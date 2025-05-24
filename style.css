@@ -40,7 +40,7 @@ section {
   margin: 30px auto;
   padding: 30px 20px 120px 20px;
   max-width: 700px;
-  border-radius: 12px;
+  border-radius: 0;
   box-shadow: none !important;
   scroll-margin-bottom: 100px;
 }
@@ -132,6 +132,32 @@ h1, h2, p {
     min-width: 60px;
   }
 
+  .countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: flex-start; /* atau center */
+  flex-wrap: wrap;
+}
+
+.countdown-box {
+  background: white;
+  border-radius: 8px;
+  padding: 8px;
+  min-width: 60px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+    .countdown-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #black;
+    }
+    .countdown-label {
+      font-size: 0.7rem;
+      color: black;
+      margin-top: 5px;
+    }
   .gift-item {
     flex-direction: column;
     align-items: flex-start;
@@ -296,13 +322,14 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
   align-items: center;
   justify-content: center;
   gap: 10px; /* jarak antara butang dan gambar */
-  max-width: 100%;
+  padding: 0 10px;
 }
 
 .gallery-viewport {
   overflow: hidden;
-  width: 100vw; /* penuh lebar skrin */
+  width: 90vw; /* 90% daripada lebar skrin */
   max-width: 100%;
+  margin: 0 auto;
   border-radius: 12px;
 }
 
@@ -326,11 +353,15 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
 
 .gallery-prev,
 .gallery-next {
-  background: none;
+  background: none !important;
   color: black;
   border: none;
-  font-size: 24px;  /* kecil tapi jelas */
+  font-size: 28px;
   padding: 5px;
   cursor: pointer;
   z-index: 2;
+  border-radius: 0 !important;
+  width: auto;
+  height: auto;
+  display: inline;
 }
