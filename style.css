@@ -302,7 +302,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
 
 .gallery-viewport {
   overflow: hidden;
-  width: 300px; /* tetap */
+  width: 500px; /* tetap */
   border-radius: 12px;
 }
 
@@ -318,7 +318,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
 }
 
 .gallery-slide img {
-  width: 100%;
+  width: 200%;
   height: 200px;
   object-fit: cover;
   border-radius: 12px;
