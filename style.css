@@ -261,12 +261,25 @@ form button[type="submit"] {
 /* ✅ Font Custom Styles */
 .font-a {
   font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
 }
 
 .font-b {
   font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
 }
 
 .font-c {
   font-family: 'Great Vibes', cursive;
+  font-size: 1.6rem;
+}
+
+.font-d {
+  font-family: 'Beau Rivage', cursive;
+  font-size: 1.6rem;
+}
+
+.font-e {
+  font-family: 'Parisienne', cursive;
+  font-size: 1.6rem;
 }
