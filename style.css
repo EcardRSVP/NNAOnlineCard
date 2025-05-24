@@ -132,32 +132,35 @@ h1, h2, p {
     min-width: 60px;
   }
 
-  .countdown {
+.countdown {
   display: flex;
   justify-content: center;
   gap: 10px;
-  align-items: flex-start; /* atau center */
-  flex-wrap: wrap;
+  flex-wrap: nowrap;       /* ❗ PENTING: jangan wrap ke baris lain */
+  overflow-x: auto;         /* Jika tak muat, boleh scroll kiri kanan */
 }
 
 .countdown-box {
+  flex: 1 0 22%;            /* Biarkan lebar fleksibel */
+  min-width: 60px;
+  min-height: 70px;
   background: white;
   border-radius: 8px;
-  padding: 8px;
-  min-width: 60px;
   text-align: center;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
     .countdown-number {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: bold;
       color: #black;
     }
     .countdown-label {
-      font-size: 0.7rem;
-      color: black;
-      margin-top: 5px;
-      min-height: 16px; /* ✅ pastikan label tak collapse */
+      font-size: 0.75rem;
+      margin-top: 3px;
     }
   
   .gift-item {
