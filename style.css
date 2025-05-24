@@ -258,16 +258,15 @@ form button[type="submit"] {
   border-radius: 8px; /* opsyenal: untuk tepi lembut */
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Allura&family=Delius&display=swap');
-
+/* ✅ Font Custom Styles */
 .font-a {
-  font-family: 'Delius', cursive;
-  font-size: 36px;
-  color: black;
+  font-family: 'Cinzel', serif;
 }
 
 .font-b {
-  font-family: 'Allura', cursive;
-  font-size: 32px;
-  color: black;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-c {
+  font-family: 'Great Vibes', cursive;
 }
