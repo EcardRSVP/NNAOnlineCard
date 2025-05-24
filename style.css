@@ -357,9 +357,10 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  height: 100%;           /* Ubah dari 100vh kepada 100% */
+  min-height: 100vh;      /* Pastikan sekurang-kurangnya satu skrin */
   z-index: -1;
+  overflow: hidden;
 }
 
 .background-video video {
