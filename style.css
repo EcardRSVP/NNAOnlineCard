@@ -15,26 +15,6 @@ html {
   padding: 0;
 }
 
-/* 🎥 Latar Video */
-#bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  border-radius: inherit;
-}
-
-@media (max-width: 768px) {
-  #bg-video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-  }
-}
-
 section {
   background-color: transparent !important;
   margin: 30px auto;
@@ -371,12 +351,26 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
   display: inline;
 }
 
+/* ✅ Pastikan wrapper seperti telefon */
 .phone-wrapper {
   max-width: 430px;
   margin: 0 auto;
-  background-color: transparent;
-  position: relative; /* ⬅️ ini penting supaya video absolute dalam wrapper */
-  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   min-height: 100vh;
+  overflow-x: hidden;
+  position: relative; /* Penting untuk video absolute di dalamnya */
+}
+
+/* ✅ Ubah video latar agar hanya ikut saiz phone-wrapper */
+#bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;      /* bukan 100vw */
+  height: 100%;     /* bukan 100vh */
+  object-fit: cover;
+  z-index: -1;
+  border-radius: inherit;
 }
 
