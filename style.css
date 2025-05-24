@@ -1,18 +1,11 @@
-body {
+/* Umum */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
   font-family: 'Ancizar Sans', sans-serif;
   text-align: center;
-  background: url('https://www.transparenttextures.com/patterns/cream-paper.png');
-  color: #333;
-  margin: 0;
-  padding: 0;
-  padding-bottom: 120px;
-  position: relative;
-  z-index: 1;
-}
-
-html {
-  margin: 0;
-  padding: 0;
+  background: none;
 }
 
 section {
@@ -353,14 +346,14 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
 
 /* ✅ Video penuh skrin di belakang */
 .background-video {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100%;           /* Ubah dari 100vh kepada 100% */
-  min-height: 100vh;      /* Pastikan sekurang-kurangnya satu skrin */
+  width: 100%;
+  height: 100%;
   z-index: -1;
   overflow: hidden;
+  border-radius: inherit;
 }
 
 .background-video video {
@@ -377,5 +370,6 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
   min-height: 100vh;
   position: relative;
   z-index: 1;
-  padding: 20px;
+  overflow: hidden;
+  padding: 12px;
 }
