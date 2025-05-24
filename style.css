@@ -157,7 +157,9 @@ h1, h2, p {
       font-size: 0.7rem;
       color: black;
       margin-top: 5px;
+      min-height: 16px; /* ✅ pastikan label tak collapse */
     }
+  
   .gift-item {
     flex-direction: column;
     align-items: flex-start;
