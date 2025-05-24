@@ -969,5 +969,24 @@ if (startBtn) {
 document.body.addEventListener('touchstart', function once() {
   music.play().catch(() => {});
   document.body.removeEventListener('touchstart', once);
-});
+
+  const track = document.querySelector('.gallery-track');
+  const slides = document.querySelectorAll('.gallery-slide');
+  const prevBtn = document.querySelector('.gallery-prev');
+  const nextBtn = document.querySelector('.gallery-next');
+  let currentIndex = 0;
+
+  function updateSlidePosition() {
+    track.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+    updateSlidePosition();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+    updateSlidePosition();
+  });
 </script>
