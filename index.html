@@ -952,41 +952,42 @@
       
   <!-- ✅ SCRIPT UNTUK KAWAL PAPARAN -->
  <script>
-const startBtn = document.getElementById('start-btn');
-const music = document.getElementById('bg-music');
+  const startBtn = document.getElementById('start-btn');
+  const music = document.getElementById('bg-music');
 
-function startInvitation() {
-  music.play().catch(e => console.log("Music autoplay blocked"));
-  document.getElementById('main-content').style.display = 'block';
-  const frontPage = document.querySelector('.front-page');
-  if (frontPage) frontPage.remove();
-}
-
-if (startBtn) {
-  startBtn.addEventListener('click', startInvitation);
-}
-
-document.body.addEventListener('touchstart', function once() {
-  music.play().catch(() => {});
-  document.body.removeEventListener('touchstart', once);
-
-  const track = document.querySelector('.gallery-track');
-  const slides = document.querySelectorAll('.gallery-slide');
-  const prevBtn = document.querySelector('.gallery-prev');
-  const nextBtn = document.querySelector('.gallery-next');
-  let currentIndex = 0;
-
-  function updateSlidePosition() {
-    track.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+  function startInvitation() {
+    music.play().catch(e => console.log("Music autoplay blocked"));
+    document.getElementById('main-content').style.display = 'block';
+    const frontPage = document.querySelector('.front-page');
+    if (frontPage) frontPage.remove();
   }
 
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
-    updateSlidePosition();
-  });
+  if (startBtn) {
+    startBtn.addEventListener('click', startInvitation);
+  }
 
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
-    updateSlidePosition();
+  document.body.addEventListener('touchstart', function once() {
+    music.play().catch(() => {});
+    document.body.removeEventListener('touchstart', once);
+
+    const track = document.querySelector('.gallery-track');
+    const slides = document.querySelectorAll('.gallery-slide');
+    const prevBtn = document.querySelector('.gallery-prev');
+    const nextBtn = document.querySelector('.gallery-next');
+    let currentIndex = 0;
+
+    function updateSlidePosition() {
+      track.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+      updateSlidePosition();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+      updateSlidePosition();
+    });
   });
 </script>
