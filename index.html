@@ -212,7 +212,40 @@
 </section>
 
     <!-- removed misplaced footer-credit -->
-      
+    
+   <hr>    
+    
+   <section class="Borang Pemberian Hadiah transparent-section">
+    <p>  
+   <h2>Borang Pemberian Hadiah</h2>
+
+  <div id="form-container">
+    <form action="https://docs.google.com/forms/..." method="POST" target="_blank">
+      <label for="nama">Nama Pemberi Hadiah:</label>
+      <input type="text" id="nama" name="nama" required>
+
+      <label for="tracking">No. Tracking:</label>
+      <input type="text" id="tracking" name="tracking" required>
+
+      <button type="submit">Hantar</button>
+    </form>
+  </div>
+
+  <div id="error-message" class="message"></div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get('ref');
+
+    if (ref === 'giftweb') {
+      document.getElementById('form-container').style.display = 'block';
+    } else {
+      document.getElementById('error-message').textContent =
+        "Maaf, borang ini hanya boleh diisi jika pembelian dibuat melalui website kami.";
+    }
+  </script>
+</body>
+</html>
 
   </div>
 
@@ -828,6 +861,7 @@
   </table><br><br><br><br><br><br>
 </section>
 
+    
 <!-- ✅ Seksyen Contact -->
 <section id="Seksyen Contact" class="hidden-section">
   <h2>📞 Contact</h2>
