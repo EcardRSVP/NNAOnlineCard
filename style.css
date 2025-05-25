@@ -1,11 +1,38 @@
-/* Umum */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+body {
   font-family: 'Ancizar Sans', sans-serif;
   text-align: center;
-  background: none;
+  background: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+  color: #333;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 120px;
+  position: relative;
+  z-index: 1;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+/* 🎥 Latar Video */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+@media (max-width: 768px) {
+  #bg-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
 }
 
 section {
@@ -342,34 +369,4 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
   width: auto;
   height: auto;
   display: inline;
-}
-
-/* ✅ Video penuh skrin di belakang */
-.background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-  border-radius: inherit;
-}
-
-.background-video video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ✅ Wrapper seperti telefon di tengah */
-.phone-wrapper {
-  max-width: 430px;
-  margin: 0 auto;
-  background-color: transparent; /* ❗ Buang putih supaya nampak video belakang */
-  min-height: 100vh;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  padding: 12px;
 }
