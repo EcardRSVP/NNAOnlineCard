@@ -382,3 +382,15 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
       font-weight: bold;
       color: red;
     }
+
+.gift-item {
+  margin-bottom: 40px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.gift-info {
+  padding: 15px;
+}
