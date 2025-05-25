@@ -1,23 +1,14 @@
-// Countdown to wedding date
-const countdownDate = new Date("June 1, 2025 10:00:00").getTime();
-
-const countdownElement = document.getElementById("countdown");
-
-function updateCountdown() {
-  const now = new Date().getTime();
-  const timeLeft = countdownDate - now;
-
-  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-  countdownElement.innerHTML = `Wedding in ${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-  if (timeLeft < 0) {
-    clearInterval(countdownInterval);
-    countdownElement.innerHTML = "Wedding has started!";
-  }
-}
-
-const countdownInterval = setInterval(updateCountdown, 1000);
+// script.js
+fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vTPi4cVVJVAYtYrDQRfhBMX0qCMllBMgjYqesb64WKf-5M4BvxIrabnse_Fq_Iu6EHsrnI8Rv1AEv7T/pub?output=csv')
+  .then(response => response.text())
+  .then(data => {
+    const rows = data.split("\n").map(row => row.split(","));
+    rows.forEach(row => {
+      const barang = row[2].trim();
+      if (barang === "Bakul Baju") {
+        const btn = document.getElementById("btn-bakul");
+        btn.innerText = "Telah Ditempah";
+        btn.disabled = true;
+      }
+    });
+  });
