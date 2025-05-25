@@ -370,3 +370,15 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
   height: auto;
   display: inline;
 }
+
+    label {
+      display: block;
+      margin-top: 10px;
+
+ #form-container {
+      display: none;
+    }
+    .message {
+      font-weight: bold;
+      color: red;
+    }
