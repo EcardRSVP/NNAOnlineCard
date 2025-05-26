@@ -394,3 +394,8 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
   padding: 15px;
 }
 
+section *, .wishlist *, #main-content * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
