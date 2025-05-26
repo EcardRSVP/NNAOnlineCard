@@ -10,11 +10,15 @@ html, body {
   color: #333;
 }
 
-section, .page, .container {
+.container, .page, section {
   width: 100%;
-  max-width: none !important;
+  max-width: 390px;  /* lebar tetap seperti telefon */
+  margin: 0 auto;    /* tengah-tengah */
   padding: 30px 20px;
   box-sizing: border-box;
+  background-color: white; /* atau transparent ikut rekabentuk */
+  border-radius: 12px;      /* opsyenal: untuk style lebih lembut */
+  box-shadow: 0 0 10px rgba(0,0,0,0.05); /* sikit bayang untuk nampak 'card' */
 }
 
 h1 {
