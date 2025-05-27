@@ -42,7 +42,7 @@ section {
   background-color: transparent !important;
   box-shadow: none !important;
   padding: 10px 20px !important;
-  padding-bottom: 10px !important;
+  margin: 10px 0 !important;
 }
 
 .hero h1 {
