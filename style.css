@@ -42,7 +42,7 @@ section {
 .transparent-section {
   background-color: transparent !important;
   box-shadow: none !important;
-  padding: 20px 10px 10px 10px; /* pendekkan padding */
+  padding: 30px 20px; /* jika perlu */
 }
 
 .hero h1 {
@@ -130,19 +130,16 @@ h1, h2, p {
 
 .countdown {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 10px;
-  flex-wrap: nowrap;
-  max-width: 100%;
-  overflow-x: auto;
-  margin: 0 auto;
-  padding: 10px 0;
+  flex-wrap: nowrap;       /* ❗ PENTING: jangan wrap ke baris lain */
+  overflow-x: auto;         /* Jika tak muat, boleh scroll kiri kanan */
 }
 
 .countdown-box {
-  flex: 1;
-  min-width: 80px;
-  padding: 10px;
+  flex: 1 0 22%;            /* Biarkan lebar fleksibel */
+  min-width: 60px;
+  min-height: 70px;
   background: white;
   border-radius: 8px;
   text-align: center;
@@ -395,5 +392,10 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
 
 .gift-info {
   padding: 15px;
+}
+
+section *, .wishlist *, #main-content * {
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
