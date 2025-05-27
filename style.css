@@ -408,3 +408,17 @@ section.doa {
   margin-bottom: 10px !important;
 }
 
+#countdown-page *:not(.countdown-box),
+section.galeri *:not(.gallery-slide),
+section.doa * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+hr {
+  margin: 10px 0 !important;
+  padding: 0 !important;
+}
+
