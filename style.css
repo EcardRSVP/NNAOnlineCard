@@ -138,7 +138,7 @@ h1, h2, p {
 }
 
 .countdown-box {
-  min-width: 60px;              /* ❗ Had minimum, jangan terlalu kecil */
+  min-width: 10px;              /* ❗ Had minimum, jangan terlalu kecil */
   background: white;
   border-radius: 10px;
   padding: 10px 8px;
