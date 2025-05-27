@@ -137,8 +137,8 @@ h1, h2, p {
 }
 
 .countdown-box {
-  flex: 1 0 22%;            /* Biarkan lebar fleksibel */
   min-width: 60px;
+  padding: 10px;
   min-height: 70px;
   background: white;
   border-radius: 8px;
@@ -147,6 +147,7 @@ h1, h2, p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex-shrink: 0; /* ❗ Elak mengecil bila ruang sempit */
 }
 
     .countdown-number {
@@ -158,6 +159,15 @@ h1, h2, p {
       font-size: 0.75rem;
       margin-top: 3px;
     }
+   
+
+  @media (max-width: 400px) {
+  .countdown-box {
+    min-width: 55px;
+    padding: 8px;
+  }
+}
+
   
   .gift-item {
     flex-direction: column;
@@ -176,8 +186,7 @@ h1, h2, p {
 
   .footer {
     flex-wrap: wrap;
-  }
-}
+   }
 
 .footer {
   position: fixed;
@@ -233,6 +242,15 @@ form button[type="submit"] {
   color: white;
   border: none;
 }
+
+#form-container {
+ display: none;
+ }
+
+.message {
+ font-weight: bold;
+ color: red;
+ } 
 
     .phone-button {
       font-family: 'Ancizar Sans', sans-serif;
@@ -369,18 +387,10 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
   display: inline;
 }
 
-    label {
-      display: block;
-      margin-top: 10px;
- }
-
- #form-container {
-      display: none;
-    }
-    .message {
-      font-weight: bold;
-      color: red;
-    }
+label {
+  display: block;
+  margin-top: 10px;
+}
 
 .gift-item {
   margin-bottom: 40px;
