@@ -32,7 +32,6 @@ html {
 section {
   background-color: transparent !important;
   margin: 30px auto;
-  padding: 30px 20px;
   max-width: 390px;
   border-radius: 0;
   box-shadow: none !important;
@@ -397,5 +396,15 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
 section *, .wishlist *, #main-content * {
   max-width: 100%;
   box-sizing: border-box;
+}
+
+/* PAKSA override untuk bahagian Countdown, Galeri & Doa */
+#countdown-page,
+section.galeri,
+section.doa {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
 }
 
