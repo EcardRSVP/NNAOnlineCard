@@ -234,6 +234,14 @@ form button[type="submit"] {
   border: none;
 }
 
+ #form-container {
+      display: none;
+    }
+    .message {
+      font-weight: bold;
+      color: red;
+    }
+
     .phone-button {
       font-family: 'Ancizar Sans', sans-serif;
       display: inline-flex;
@@ -373,14 +381,6 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
       display: block;
       margin-top: 10px;
  }
-
- #form-container {
-      display: none;
-    }
-    .message {
-      font-weight: bold;
-      color: red;
-    }
 
 .gift-item {
   margin-bottom: 40px;
