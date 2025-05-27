@@ -17,7 +17,7 @@ html {
 
 /* 🎥 Latar Video */
 #bg-video {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -124,6 +124,10 @@ h1, h2, p {
     font-size: 0.95rem;
   }
 
+  .countdown div {
+    min-width: 60px;
+  }
+
 .countdown {
   display: flex;
   justify-content: center;
@@ -148,20 +152,12 @@ h1, h2, p {
     .countdown-number {
       font-size: 1.4rem;
       font-weight: bold;
-      color: #black;
+      color: #000000;
     }
     .countdown-label {
       font-size: 0.75rem;
       margin-top: 3px;
     }
-   
-  @media (max-width: 400px) {
-  .countdown-box {
-    min-width: 55px;
-    padding: 8px;
-  }
-}
-
   
   .gift-item {
     flex-direction: column;
@@ -180,7 +176,8 @@ h1, h2, p {
 
   .footer {
     flex-wrap: wrap;
-   }
+  }
+}
 
 .footer {
   position: fixed;
@@ -236,15 +233,6 @@ form button[type="submit"] {
   color: white;
   border: none;
 }
-
-#form-container {
- display: none;
- }
-
-.message {
- font-weight: bold;
- color: red;
- } 
 
     .phone-button {
       font-family: 'Ancizar Sans', sans-serif;
@@ -381,10 +369,18 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
   display: inline;
 }
 
-label {
-  display: block;
-  margin-top: 10px;
-}
+    label {
+      display: block;
+      margin-top: 10px;
+ }
+
+ #form-container {
+      display: none;
+    }
+    .message {
+      font-weight: bold;
+      color: red;
+    }
 
 .gift-item {
   margin-bottom: 40px;
@@ -396,10 +392,5 @@ label {
 
 .gift-info {
   padding: 15px;
-}
-
-section *, .wishlist *, #main-content * {
-  max-width: 100%;
-  box-sizing: border-box;
 }
 
