@@ -396,8 +396,11 @@ section.transparent-section,
 section#countdown-page,
 section.galeri,
 section.doa {
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-  margin-top: 10px !important;
-  margin-bottom: 10px !important;
+  padding: 10px 20px !important;
+  margin: 10px 0 !important;
+}
+
+section.page {
+  padding: 0 !important;
+  margin: 0 !important;
 }
