@@ -17,13 +17,16 @@ html {
 
 /* 🎥 Latar Video */
 #bg-video {
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
+  max-width: 390px;
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  display: block;
 }
 
 section {
@@ -231,16 +234,6 @@ form button[type="submit"] {
   border: none;
 }
 
- #form-container {
-      display: none;
-    }
-
-.message {
- font-weight: bold;
- color: red;
- }
-
-
     .phone-button {
       font-family: 'Ancizar Sans', sans-serif;
       display: inline-flex;
@@ -380,6 +373,14 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
       display: block;
       margin-top: 10px;
  }
+
+ #form-container {
+      display: none;
+    }
+    .message {
+      font-weight: bold;
+      color: red;
+    }
 
 .gift-item {
   margin-bottom: 40px;
