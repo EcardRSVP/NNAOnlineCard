@@ -38,14 +38,6 @@ section {
   scroll-margin-bottom: 100px;
 }
 
-.transparent-section {
-  background-color: transparent !important;
-  box-shadow: none !important;
-  padding: 10px 20px !important;
-  margin-top: 10px !important;
-  margin-bottom: 10px !important;
-}
-
 .hero h1 {
   font-family: 'Ancizar Sans', sans-serif;
   font-size: 36px;
@@ -400,3 +392,12 @@ section *, .wishlist *, #main-content * {
   box-sizing: border-box;
 }
 
+section.transparent-section,
+section#countdown-page,
+section.galeri,
+section.doa {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
