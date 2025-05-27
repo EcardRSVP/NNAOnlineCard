@@ -124,27 +124,22 @@ h1, h2, p {
     font-size: 0.95rem;
   }
 
-  .countdown div {
-    min-width: 60px;
-  }
-
 .countdown {
   display: flex;
   justify-content: center;
   gap: 10px;
   flex-wrap: nowrap;       /* ❗ PENTING: jangan wrap ke baris lain */
   overflow-x: auto;         /* Jika tak muat, boleh scroll kiri kanan */
-  padding-bottom: 10px;
 }
 
 .countdown-box {
-  min-width: 10px;              /* ❗ Had minimum, jangan terlalu kecil */
+  flex: 1 0 22%;            /* Biarkan lebar fleksibel */
+  min-width: 60px;
+  min-height: 70px;
   background: white;
-  border-radius: 10px;
-  padding: 10px 8px;
+  border-radius: 8px;
   text-align: center;
-  flex-shrink: 0;               /* ❗ Jangan bagi mengecil automatik */
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -153,14 +148,13 @@ h1, h2, p {
     .countdown-number {
       font-size: 1.4rem;
       font-weight: bold;
-      color: #000000;
+      color: #black;
     }
     .countdown-label {
       font-size: 0.75rem;
       margin-top: 3px;
     }
    
-
   @media (max-width: 400px) {
   .countdown-box {
     min-width: 55px;
