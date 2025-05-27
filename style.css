@@ -42,7 +42,7 @@ section {
 .transparent-section {
   background-color: transparent !important;
   box-shadow: none !important;
-  padding: 30px 20px; /* jika perlu */
+  padding: 20px 10px 10px 10px; /* pendekkan padding */
 }
 
 .hero h1 {
