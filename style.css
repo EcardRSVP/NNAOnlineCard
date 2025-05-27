@@ -130,16 +130,19 @@ h1, h2, p {
 
 .countdown {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 10px;
-  flex-wrap: nowrap;       /* ❗ PENTING: jangan wrap ke baris lain */
-  overflow-x: auto;         /* Jika tak muat, boleh scroll kiri kanan */
+  flex-wrap: nowrap;
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 0 auto;
+  padding: 10px 0;
 }
 
 .countdown-box {
-  flex: 1 0 22%;            /* Biarkan lebar fleksibel */
-  min-width: 60px;
-  min-height: 70px;
+  flex: 1;
+  min-width: 80px;
+  padding: 10px;
   background: white;
   border-radius: 8px;
   text-align: center;
