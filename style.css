@@ -420,5 +420,8 @@ section.doa * {
 hr {
   margin: 10px 0 !important;
   padding: 0 !important;
+  border: 0;
+  border-top: 1px solid #ccc;
 }
+
 
