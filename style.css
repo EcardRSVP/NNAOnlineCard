@@ -32,10 +32,17 @@ html {
 section {
   background-color: transparent !important;
   margin: 30px auto;
+  padding: 30px 20px;
   max-width: 390px;
   border-radius: 0;
   box-shadow: none !important;
   scroll-margin-bottom: 100px;
+}
+
+.transparent-section {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding: 30px 20px; /* jika perlu */
 }
 
 .hero h1 {
@@ -92,7 +99,7 @@ footer {
   width: 100%;
   max-width: 390px;
   margin: 0 auto;
-  padding: 0px;
+  padding: 20px;
   box-sizing: border-box;
   text-align: center;
   min-height: 100vh;
@@ -392,15 +399,3 @@ section *, .wishlist *, #main-content * {
   box-sizing: border-box;
 }
 
-section.transparent-section,
-section#countdown-page,
-section.galeri,
-section.doa {
-  padding: 10px 20px !important;
-  margin: 10px 0 !important;
-}
-
-section.page {
-  padding: 0 !important;
-  margin: 0 !important;
-}
