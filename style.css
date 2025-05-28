@@ -32,6 +32,7 @@ html {
 section {
   background-color: transparent !important;
   margin: 30px auto;
+  padding: 30px 20px;
   max-width: 390px;
   border-radius: 0;
   box-shadow: none !important;
@@ -210,11 +211,6 @@ h1, h2, p {
   background-color: transparent !important;
   box-shadow: none !important;
   padding-bottom: 20px !important;
-}
-
-.transparent-section h1 {
-  margin-top: 10px !important;
-  margin-bottom: 10px !important;
 }
 
 
@@ -403,30 +399,10 @@ section *, .wishlist *, #main-content * {
   box-sizing: border-box;
 }
 
-/* PAKSA override untuk bahagian Countdown, Galeri & Doa */
-#countdown-page,
-section.galeri,
-section.doa {
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-  margin-top: 10px !important;
-  margin-bottom: 10px !important;
+
+
+.spacer {
+  height: 40px;
+  width: 100%;
+  display: block;
 }
-
-#countdown-page *:not(.countdown-box),
-section.galeri *:not(.gallery-slide),
-section.doa * {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-hr {
-  margin: 10px 0 !important;
-  padding: 0 !important;
-  border: 0;
-  border-top: 1px solid #ccc;
-}
-
-
