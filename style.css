@@ -122,41 +122,38 @@ h1, h2, p {
     font-size: 0.95rem;
   }
 
-  .countdown div {
-    min-width: 60px;
-  }
-
 .countdown {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6px;              /* kecilkan jarak antara kotak */
-  flex-wrap: nowrap;     /* pastikan satu baris */
+  gap: 6px;              /* rapatkan sikit */
+  flex-wrap: nowrap;     /* elak patah ke bawah */
+  margin-top: 10px;
 }
 
 .countdown-box {
-  width: 50px;
-  height: 60px;
+  width: 60px;
+  height: 65px;
   background: white;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   flex-shrink: 1;
 }
 
 .countdown-number {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #000000;
 }
 
 .countdown-label {
   font-size: 0.75rem;
   margin-top: 2px;
 }
+
 
 
   .gift-item {
