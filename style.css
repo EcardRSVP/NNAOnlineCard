@@ -448,4 +448,23 @@ hr {
   }
 }
 
+/* Balut semua content supaya max 390px macam telefon */
+#wrapper {
+  max-width: 390px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
 
+/* Ubah video supaya tidak penuh satu skrin laptop */
+@media (min-width: 768px) {
+  #bg-video {
+    width: 390px;
+    height: 100vh;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: cover;
+    position: fixed;
+  }
+}
