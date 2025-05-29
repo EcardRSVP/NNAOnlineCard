@@ -7,7 +7,7 @@ body {
   padding: 0;
   padding-bottom: 120px;
   position: relative;
-  z-index: 1;
+  
 }
 
 html {
@@ -37,10 +37,14 @@ section {
   scroll-margin-bottom: 100px;
 }
 
-.transparent-section {
-  background-color: transparent !important;
-  box-shadow: none !important;
-  padding: 30px 20px; /* jika perlu */
+.transparent-section,
+section#countdown-page,
+section.galeri,
+section.doa {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  min-height: auto;
 }
 
 .hero h1 {
@@ -122,40 +126,41 @@ h1, h2, p {
     font-size: 0.95rem;
   }
 
+  .countdown div {
+    min-width: 60px;
+  }
+
 .countdown {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 6px;              /* rapatkan sikit */
-  flex-wrap: nowrap !important;
-  margin-top: 10px;
+  gap: 10px;
+  flex-wrap: nowrap;       /* ❗ PENTING: jangan wrap ke baris lain */
+  overflow-x: auto;         /* Jika tak muat, boleh scroll kiri kanan */
 }
 
 .countdown-box {
-  width: 60px;
-  height: 65px;
+  flex: 1 0 22%;            /* Biarkan lebar fleksibel */
+  min-width: 60px;
+  min-height: 70px;
   background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  flex-shrink: 1;
 }
 
-.countdown-number {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.countdown-label {
-  font-size: 0.75rem;
-  margin-top: 2px;
-}
-
-
-
+    .countdown-number {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #000000;
+    }
+    .countdown-label {
+      font-size: 0.75rem;
+      margin-top: 3px;
+    }
+  
   .gift-item {
     flex-direction: column;
     align-items: flex-start;
@@ -204,10 +209,14 @@ h1, h2, p {
   font-size: 11px;
 }
 
-.transparent-section {
-  background-color: transparent !important;
-  box-shadow: none !important;
-  padding-bottom: 20px !important;
+.transparent-section,
+section#countdown-page,
+section.galeri,
+section.doa {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  min-height: auto;
 }
 
 
@@ -399,10 +408,13 @@ section *, .wishlist *, #main-content * {
 
 /* ✅ KEMASKINI UNTUK KECILKAN JARAK ANTARA COUNTDOWN, GALERI, DOA */
 
-.transparent-section {
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-  margin-bottom: 0px !important;
+.transparent-section,
+section#countdown-page,
+section.galeri,
+section.doa {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
   min-height: auto;
 }
 
