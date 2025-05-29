@@ -127,7 +127,7 @@ h1, h2, p {
   justify-content: center;
   align-items: center;
   gap: 6px;              /* rapatkan sikit */
-  flex-wrap: nowrap;     /* elak patah ke bawah */
+  flex-wrap: nowrap !important;
   margin-top: 10px;
 }
 
