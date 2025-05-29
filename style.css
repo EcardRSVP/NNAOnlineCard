@@ -436,7 +436,7 @@ section.doa {
 hr {
   display: block;
   border: none;
-  border-top: 1px solid #888;
+  border-top: 3px solid #666;
   margin: 20px auto;
   width: 80%;
   max-width: 360px;
