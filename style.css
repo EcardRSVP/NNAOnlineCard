@@ -436,7 +436,7 @@ section.doa {
 hr {
   display: block;
   border: none;
-  border-top: 4px solid #888;
+  border-top: 3px solid #888;
   margin: 24px auto;
   width: 90%;
   max-width: 360px;
@@ -444,7 +444,7 @@ hr {
 
 @media (max-width: 768px) {
   hr {
-    border-top: 4px solid #999;
+    border-top: 3px solid #999;
   }
 }
 
