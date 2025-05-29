@@ -309,6 +309,52 @@ form button[type="submit"] {
   border-radius: 8px; /* opsyenal: untuk tepi lembut */
 }
 
+.purchase-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.purchase-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f5f5f5;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.2s ease;
+}
+
+.purchase-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+.shopee-btn {
+  background-color: #f1582b;
+  color: white;
+}
+
+.shopee-btn:hover {
+  background-color: #e14a1c;
+}
+
+.whatsapp-btn {
+  background-color: #25d366;
+  color: white;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebd5b;
+}
+
 /* ✅ Font Custom Styles */
 .font-a {
   font-family: 'Cinzel', serif;
