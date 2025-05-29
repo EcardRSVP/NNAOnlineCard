@@ -406,3 +406,26 @@ section *, .wishlist *, #main-content * {
   width: 100%;
   display: block;
 }
+
+/* ✅ KEMASKINI UNTUK KECILKAN JARAK ANTARA COUNTDOWN, GALERI, DOA */
+
+.transparent-section {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+section#countdown-page,
+section.galeri,
+section.doa {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+MACAM NI KE?
