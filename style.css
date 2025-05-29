@@ -468,3 +468,23 @@ hr {
     position: fixed;
   }
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-left: env(safe-area-inset-left);  /* Untuk iPhone notch */
+  padding-right: env(safe-area-inset-right);
+  width: 100vw;
+  max-width: 100%;
+  ...
+}
+
+@media (min-width: 768px) {
+  .footer {
+    max-width: 390px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
