@@ -434,8 +434,9 @@ section.doa {
 }
 
 hr {
+  display: block;
   border: none;
-  border-top: 1px solid #999;
+  border-top: 1px solid #888;
   margin: 20px auto;
   width: 80%;
   max-width: 360px;
