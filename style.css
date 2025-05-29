@@ -127,11 +127,8 @@ h1, h2, p {
   }
 
 .countdown {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: nowrap;       /* ❗ PENTING: jangan wrap ke baris lain */
-  overflow-x: auto;         /* Jika tak muat, boleh scroll kiri kanan */
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
 }
 
 .countdown-box {
