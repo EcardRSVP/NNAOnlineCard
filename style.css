@@ -6,6 +6,8 @@ body {
   margin: 0;
   padding: 0;
   padding-bottom: 120px;
+  position: relative;
+  z-index: 1;
 }
 
 html {
@@ -24,18 +26,6 @@ html {
   z-index: -1;
   pointer-events: none;
 }
-
-/* Bungkus semua kandungan */
-.main-content {
-  position: relative;
-  z-index: 1;
-}
-
-/* Extra jaga spacing jika perlu */
-section {
-  padding: 2rem;
-}
-
 
 section {
   background-color: transparent !important;
