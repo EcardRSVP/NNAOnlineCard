@@ -468,23 +468,3 @@ hr {
     position: fixed;
   }
 }
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100vw; /* Gunakan viewport penuh */
-  height: 60px;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
-  border-top: 1px solid #ddd;
-  z-index: 1000;
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-}
-
-
