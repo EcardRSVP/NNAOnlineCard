@@ -19,7 +19,7 @@ html {
 #bg-video {
   position: fixed;
   top: 0;
-  left: 50%;
+  left: 0;
   transform: translateX(-50%);
   width: 100%;
   max-width: 390px;
