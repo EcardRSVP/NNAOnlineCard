@@ -400,32 +400,25 @@ section *, .wishlist *, #main-content * {
 }
 
 
-
-.spacer {
-  height: 40px;
-  width: 100%;
-  display: block;
-}
-
 /* ✅ KEMASKINI UNTUK KECILKAN JARAK ANTARA COUNTDOWN, GALERI, DOA */
 
 .transparent-section {
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-  margin-bottom: 10px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 0px !important;
+  min-height: auto;
 }
 
 section#countdown-page,
 section.galeri,
 section.doa {
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-  margin-bottom: 10px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 0px !important;
+  min-height: auto;
 }
 
 hr {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
-
-MACAM NI KE?
