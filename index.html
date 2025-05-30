@@ -291,12 +291,12 @@
       <div class="gift-title">Microwave Oven</div>
 
       <!-- Link Shopee -->
-      <a href="https://s.shopee.com.my/Vu5yuSFl9" target="_blank">Link Shopee</a><br>
+      <a href="https://s.shopee.com.my/Vu5yuSFl9?ref=hadiahRSVP" target="_blank">Link Shopee</a><br>
 
       <!-- Link TikTok -->
-    <a href="https://vt.tiktok.com/ZShv4EAJG/" target="_blank">Link TikTok</a>
+      <a href="https://vt.tiktok.com/ZShv4EAJG/?ref=hadiahRSVP" target="_blank">Link TikTok</a>
       
-      <button onclick="tempah(this)">Tempah</button>
+      <button onclick="window.location.href='?ref=hadiahRSVP#form-hadiah'">Tempah</button>
     </div>
   </div>
   
@@ -1514,8 +1514,25 @@
     });
   }
 
-  fetchCSVData();
+   window.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get("ref");
+
+    if (ref === "hadiahRSVP") {
+      // Tunjukkan borang
+      document.getElementById("form-hadiah").style.display = "block";
+      document.getElementById("hadiah-message").style.display = "none";
+    } else {
+      // Sembunyikan borang (default)
+      document.getElementById("form-hadiah").style.display = "none";
+      document.getElementById("hadiah-message").style.display = "block";
+    }
+  });
 </script>
+
+</body>
+</html>
+
 
 
 
