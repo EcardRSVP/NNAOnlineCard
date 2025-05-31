@@ -1379,42 +1379,55 @@
     <div class="gift-info">
       <div class="gift-title">Contoh Kad</div>
       <a href="https://s.shopee.com.my/y6xhgCor?ref=hadiahRSVP" target="_blank">Link Shopee</a>
-      <button onclick="window.location.href='?ref=hadiahRSVP#form-hadiah'">Tempah</button>
+      <p><strong>📌 Selepas pembelian:</strong> <a href="#form-hadiah">Isi maklumat pemberian hadiah di sini</a></p>
 
     </div>
   </div>   
 
    
-<!-- 📦 Borang Pemberian Hadiah & Tracking -->
-<h3>📦 Pemberian Hadiah & No. Tracking</h3>
-<div id="form-hadiah" style="display: none;">
-  <form action="https://docs.google.com/forms/d/e/1FAIpQLScH6NjDWpvebRfQK36WY1v-QdvZxrpRIcIqVPKl_ym6MPMLUg/formResponse" method="POST" target="_blank">
-    <label for="namaHadiah">Nama Pemberi Hadiah:</label>
-    <input type="text" id="namaHadiah" name="entry.1042591092" required>
+ <!-- 📦 Borang Isi Maklumat Pemberian Hadiah -->
+  <h3 id="form-hadiah">📦 Borang Isi Maklumat Pemberian Hadiah</h3>
+  <p>Terima kasih! Sila isi maklumat selepas membuat pembelian</p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScH6NjDWpvebRfQK36WY1v-QdvZxrpRIcIqVPKl_ym6MPMLUg/formResponse" target="_blank" class="btn btn-form">Isi Borang Hadiah</a>
 
-    <label for="trackingHadiah">No. Tracking:</label>
-    <input type="text" id="trackingHadiah" name="entry.287103268" required>
-
-    <button type="submit">Hantar</button>
-  </form>
-</div>
-
-<p id="hadiah-message" style="color: red; text-align:center;">
-  Borang hanya boleh diakses melalui link khas di website kami.
-</p>
-
-<table id="hadiah-table">
+  <!-- 📋 Pemberian Hadiah -->
+  <h3>Maklumat Pemberian Hadiah</h3>
+  <table id="hadiah-table">
     <thead>
       <tr>
-        <th>Nama Pemberi Hadiah</th>
-        <th>No. Tracking</th>
-        <th>Link Tracking</th>
+        <th>Nama Pemberi</th>
+        <th>Barang yang ditempah</th>
       </tr>
     </thead>
     <tbody></tbody>
-  </table><br><br><br><br><br><br>
+  </table>
 </section>
 
+<!-- ✅ Script Tabletop.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    Tabletop.init({
+      key: '2PACX-1vTPi4cVVJVAYtYrDQRfhBMX0qCMllBMgjYqesb64WKf-5M4BvxIrabnse_Fq_Iu6EHsrnI8Rv1AEv7T',
+      callback: showData,
+      simpleSheet: true
+    });
+
+    function showData(data) {
+      const tableBody = document.querySelector('#hadiah-table tbody');
+      data.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item['Nama Pemberi Hadiah']}</td>
+          <td>${item['Barang yang ditempah']}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+  });
+</script>
+
+  
 <!-- ✅ Seksyen Contact -->
 <section id="Seksyen Contact" class="hidden-section">
   <h2>📞 Contact</h2>
