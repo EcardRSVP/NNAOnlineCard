@@ -445,6 +445,17 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
   padding: 15px;
 }
 
+.nama-ayah,
+.simbol-dan,
+.nama-ibu,
+.nama-pengantin,
+.pilihan-hati,
+.nama-pasangan {
+  margin: 4px 0; /* Atur ikut kesesuaian */
+  line-height: 1.2;
+}
+
+
 section *, .wishlist *, #main-content * {
   max-width: 100%;
   box-sizing: border-box;
