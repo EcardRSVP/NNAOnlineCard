@@ -1549,6 +1549,13 @@ function copyRek() {
   });
 </script>
 
+  document.querySelector('a[href="#form-hadiah"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  const section = document.getElementById('form-hadiah');
+  section.scrollIntoView({ behavior: 'smooth' });
+});
+
+
 </body>
 </html>
 
