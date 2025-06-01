@@ -1289,8 +1289,8 @@
       const tbody = document.querySelector("#hadiah-table tbody");
       lines.forEach(line => {
         const cols = line.split(",");
-        const namaPemberi = cols[2]?.replace(/"/g, "") || "-";   // indeks 1 = Nama Pemberi
-        const namaBarang = cols[4]?.replace(/"/g, "") || "-";    // indeks 2 = Nama Barang
+        const namaPemberi = cols[1]?.replace(/"/g, "") || "-";   // indeks 1 = Nama Pemberi
+        const namaBarang = cols[3]?.replace(/"/g, "") || "-";    // indeks 2 = Nama Barang
 
         const tr = document.createElement("tr");
         tr.innerHTML = `<td>${namaPemberi}</td><td>${namaBarang}</td>`;
