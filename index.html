@@ -1276,23 +1276,29 @@
 </section>
 
 <!-- ✅ Script Tabletop.js -->
+ <script src="https://unpkg.com/tabletop@1.5.4/tabletop.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
     Tabletop.init({
-  key: 'https://docs.google.com/spreadsheets/d/1BEs4b9m2mz2etkpcO5qoU10bFgreWH1Lft1MUI7YXVA/gviz/tq?tqx=out:csv',
-  callback: function(data) {
-    const tbody = document.querySelector('#senarai-hadiah tbody');
-    data.forEach(row => {
-      const nama = row['Nama Pemberi Hadiah'];
-      const barang = row['Nama Barang'];
-      if (nama && barang) {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${nama}</td><td>${barang}</td>`;
-        tbody.appendChild(tr);
+      key: 'https://docs.google.com/spreadsheets/d/1BEs4b9m2mz2etkpcO5qoU10bFgreWH1Lft1MUI7YXVA/gviz/tq?tqx=out:csv',
+      simpleSheet: true,
+      callback: function(data) {
+        const tbody = document.querySelector('#senarai-hadiah tbody');
+        data.forEach(row => {
+          // Elak baris kosong
+          if (row["Nama Pemberi Hadiah"] && row["Nama Barang"]) {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>${row["Nama Pemberi Hadiah"]}</td>
+              <td>${row["Nama Barang"]}</td>
+            `;
+            tbody.appendChild(tr);
+          }
+        });
       }
     });
-  },
-  simpleSheet: true
-});
-
+  });
+</script>
 
   
 <!-- ✅ Seksyen Contact -->
