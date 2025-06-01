@@ -177,7 +177,6 @@ h1, h2, p {
     max-width: 150px;
     height: 100px;
     object-fit: cover;
-    border-radius: 8px;
     display: block;
     margin: 0 auto 10px;
   }
@@ -436,7 +435,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
 .gift-item {
   margin-bottom: 10px;
   border: transparent;
-  border-radius: 10px;
+  border-radius: transparent;
   overflow: hidden;
   background-color: transparent;
 }
