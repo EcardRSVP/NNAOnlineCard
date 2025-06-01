@@ -1276,28 +1276,32 @@
 </section>
 
 <!-- ✅ Script Tabletop.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    Tabletop.init({
-      key: '1BEs4b9m2mz2etkpcO5qoU10bFgreWH1Lft1MUI7YXVA',
-      callback: showData,
-      simpleSheet: true
-    });
+  window.addEventListener("DOMContentLoaded", fetchCSVData);
 
-    function showData(data) {
-      const tableBody = document.querySelector('#hadiah-table tbody');
-      data.forEach(item => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td>${item['Nama Pemberi Hadiah']}</td>
-          <td>${item['Barang yang ditempah']}</td>
-        `;
-        tableBody.appendChild(row);
+  async function fetchCSVData() {
+    const url = "https://docs.google.com/spreadsheets/d/1BEs4b9m2mz2etkpcO5qoU10bFgreWH1Lft1MUI7YXVA/gviz/tq?tqx=out:csv";
+    try {
+      const response = await fetch(url);
+      const csvText = await response.text();
+      const lines = csvText.trim().split("\n").slice(1); // buang header
+
+      const tbody = document.querySelector("#hadiah-table tbody");
+      lines.forEach(line => {
+        const cols = line.split(",");
+        const nama = cols[0]?.replace(/"/g, "") || "-";
+        const barang = cols[1]?.replace(/"/g, "") || "-";
+
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${nama}</td><td>${barang}</td>`;
+        tbody.appendChild(tr);
       });
+    } catch (error) {
+      console.error("Gagal ambil data:", error);
     }
-  });
+  }
 </script>
+
 
   
 <!-- ✅ Seksyen Contact -->
