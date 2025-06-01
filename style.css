@@ -438,7 +438,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .gift-info {
