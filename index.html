@@ -1286,11 +1286,11 @@
         const tbody = document.querySelector('#senarai-hadiah tbody');
         data.forEach(row => {
           // Elak baris kosong
-          if (row["Nama Pemberi Hadiah"] && row["Nama Barang"]) {
+          if (row["Nama Pemberi Hadiah"] && row["Barang yang ditempah"]) {
             const tr = document.createElement('tr');
             tr.innerHTML = `
               <td>${row["Nama Pemberi Hadiah"]}</td>
-              <td>${row["Nama Barang"]}</td>
+              <td>${row["Barang yang ditempah"]}</td>
             `;
             tbody.appendChild(tr);
           }
