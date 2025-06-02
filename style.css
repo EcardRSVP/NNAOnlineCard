@@ -182,16 +182,6 @@ h1, h2, p {
   margin-top: 2px;
 }
 
-.gift-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* pastikan gambar dan teks align tengah */
-  text-align: center;
-}
-
-  .gift-item img {
-    margin: 0 auto 10px;
-  }
 
   .footer {
     flex-wrap: wrap;
@@ -452,10 +442,6 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, strong, em, label, input, button, td
   background-color: transparent;
 }
 
-.gift-info {
-  padding: 2px 8px;
-}
-
 .nama-ayah,
 .simbol-dan,
 .nama-ibu,
@@ -562,3 +548,19 @@ hr {
     position: fixed;
   }
 }
+
+.gift-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  text-align: center;
+}
+
+  .gift-item img {
+    margin: 0 auto 10px;
+  }
+
+.gift-info {
+  padding: 2px 8px;
+}
+
