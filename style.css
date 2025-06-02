@@ -182,10 +182,12 @@ h1, h2, p {
   margin-top: 2px;
 }
 
-  .gift-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.gift-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* pastikan gambar dan teks align tengah */
+  text-align: center;
+}
 
   .gift-item img {
     width: 100%;
