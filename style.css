@@ -190,11 +190,6 @@ h1, h2, p {
 }
 
   .gift-item img {
-    width: 100%;
-    max-width: 150px;
-    height: 100px;
-    object-fit: cover;
-    display: block;
     margin: 0 auto 10px;
   }
 
