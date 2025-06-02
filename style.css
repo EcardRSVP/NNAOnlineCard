@@ -349,6 +349,24 @@ form button[type="submit"] {
   background-color: #1ebd5b;
 }
 
+.gift-links a {
+  background-color: #8B0000;         /* warna maroon */
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 4px;
+  display: inline-block;
+  font-family: 'Ancizar Sans', sans-serif;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+.gift-links a:hover {
+  background-color: #a50000;
+}
+
 /* ✅ Font Custom Styles */
 .font-a {
   font-family: 'Cinzel', serif;
