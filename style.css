@@ -187,14 +187,14 @@ h1, h2, p {
     align-items: flex-start;
   }
 
-  .gift-item img {
-    width: 100%;
-    max-width: 150px;
-    height: 100px;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto 10px;
-  }
+.gift-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 10px;
+}
+
 
   .footer {
     flex-wrap: wrap;
