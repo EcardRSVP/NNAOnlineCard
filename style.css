@@ -91,6 +91,21 @@ button:hover {
   background-color: #A52A2A;
 }
 
+button.copy-btn {
+  background-color: #8B0000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+button.copy-btn:hover {
+  background-color: #a50000;
+}
+
+
 footer {
   font-size: 14px;
   color: #777;
