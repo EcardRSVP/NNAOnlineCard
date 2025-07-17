@@ -67,9 +67,25 @@
       width: 100%;
       max-width: 420px;
     }    
-    .hidden-section {
-      display: none;
-    }
+.hidden-section {
+  background-color: white;
+  padding: 30px 20px;
+  margin: 30px auto;
+  width: fit-content;
+  max-width: 90vw;           /* ✔️ adaptasi ikut skrin */
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: none;
+  position: relative;
+}
+.hidden-section h2,
+.hidden-section p {
+  font-size: 1rem;
+}
+.hidden-section button {
+  font-size: 1rem;
+  padding: 10px 20px;
+}
   </style>
 </head>
 <body>
